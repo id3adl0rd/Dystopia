@@ -22,13 +22,19 @@ public class EnemySpawnerController : MonoBehaviour
     {
         SetTimeUntilSpawn();
     }
-
+    
     private void Update()
     {
         _timeUntilSpawn -= Time.deltaTime;
 
         if (_timeUntilSpawn <= 0 && _enemyList.Count < _maxEnemiesOnSpawner)
         {
+            transform.position = new Vector3(
+                Random.Range(transform.position.x - 1, transform.position.x + 1),
+                Random.Range(transform.position.y - 1, transform.position.y + 1),
+                transform.position.z
+            );
+            
             GameObject obj = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             SetTimeUntilSpawn();
             _enemyList.Add(obj);
@@ -40,5 +46,15 @@ public class EnemySpawnerController : MonoBehaviour
                 _npcEvents._spawnerParent = gameObject;
             }
         }
+    }
+    
+    private Collider[] GetInactiveInRadius(Vector3 center, float radius){
+        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+        foreach (var hitCollider in hitColliders)
+        {
+            Debug.Log("object spawned");
+        }
+
+        return hitColliders;
     }
 }

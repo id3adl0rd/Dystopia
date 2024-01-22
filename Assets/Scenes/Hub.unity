@@ -609,6 +609,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 963114252429321091, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1982334182, guid: 8425b776c73f395a299ac0e99e753c0f, type: 3}
+    - target: {fileID: 963114252429321091, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540595168197941533, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+      propertyPath: _speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3839085940728193235, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.93420786
@@ -648,6 +660,10 @@ PrefabInstance:
     - target: {fileID: 3839085940728193235, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449194254031679426, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4656119182535806620, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
       propertyPath: m_Name
@@ -692,7 +708,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4656119182535806620, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2125280037}
+    - targetCorrespondingSourceObject: {fileID: 5307880367956962714, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1197816770}
   m_SourcePrefab: {fileID: 100100000, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+--- !u!1 &1197816769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5307880367956962714, guid: 1966f5e9d3ffc3bd0bdbf9bb04fd8da8, type: 3}
+  m_PrefabInstance: {fileID: 1197816768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1197816770
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197816769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a0226abc52e01ad6b0b0cc371c2a450, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1302198167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,6 +746,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _maxSpawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _minSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _maxEnemiesOnSpawner
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1802519717776792932, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
       propertyPath: m_Name
       value: EnemySpawn (1)
@@ -792,6 +849,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _maxSpawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _minSpawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758922398916447950, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
+      propertyPath: _maxEnemiesOnSpawner
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1802519717776792932, guid: cb5032c6d4f3db8cf81254f5e24cb22f, type: 3}
       propertyPath: m_Name
       value: EnemySpawn

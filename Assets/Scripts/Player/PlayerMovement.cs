@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,15 +15,18 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
 
+    private Animator _playerAnimator;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _playerAnimator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         SetPlayerVelocity();
-        RotateInDirectionOfInput();
+        //RotateInDirectionOfInput();
     }
 
     private void SetPlayerVelocity()
@@ -34,6 +38,18 @@ public class PlayerMovement : MonoBehaviour
             0.1f);
 
         _rigidbody.velocity = _smoothedMovementInput * _speed;
+        
+        _playerAnimator.SetFloat("moveX", _smoothedMovementInput.x);
+        _playerAnimator.SetFloat("moveY", _smoothedMovementInput.y);
+
+        if (_smoothedMovementInput != Vector2.zero)
+        {
+            _playerAnimator.SetBool("isMoving", true);
+        }
+        else
+        {
+            _playerAnimator.SetBool("isMoving", false);
+        }
     }
 
     private void RotateInDirectionOfInput()

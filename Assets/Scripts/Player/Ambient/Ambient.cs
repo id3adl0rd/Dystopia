@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ambient : MonoBehaviour
 {
-    AudioSource m_MyAudioSource;
+    private static Ambient instance;
     
-    bool m_Play;
-
-    bool m_ToggleChange;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogError("More than one ambient classes");
+        }
+    }
 }

@@ -1,11 +1,18 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [FormerlySerializedAs("_moveSpeed")] [SerializeField]
+    private float _walkSpeed;
     [SerializeField]
-    private float _speed;
+    private float _sprintSpeed;
+
+    private float _moveSpeed;
+    private bool isSprinting;
 
     [SerializeField]
     private float _rotationSpeed;
@@ -17,10 +24,31 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _playerAnimator;
 
+    private PlayerInputControl _playerInput;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _playerInput = new PlayerInputControl();
+        OnEnable();
+        _playerInput.Player.Sprint.performed += ctx => SprintPressed();
+        _playerInput.Player.Sprint.canceled += ctx => SprintReleased();
+        _moveSpeed = _walkSpeed;
+    }
+
+    private void OnEnable()
+    {
+        _playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.Disable();
     }
 
     private void FixedUpdate()
@@ -29,15 +57,27 @@ public class PlayerMovement : MonoBehaviour
         //RotateInDirectionOfInput();
     }
 
+    private void SprintPressed()
+    {
+        isSprinting = true;
+        _moveSpeed = _sprintSpeed;
+    }
+
+    private void SprintReleased()
+    {
+        isSprinting = false;
+        _moveSpeed = _walkSpeed;
+    }
+
     private void SetPlayerVelocity()
     {
         _smoothedMovementInput = Vector2.SmoothDamp(
             _smoothedMovementInput,
             _movementInput,
             ref _movementInputSmoothVelocity,
-            0.1f);
+            0.05f);
 
-        _rigidbody.velocity = _smoothedMovementInput * _speed;
+        _rigidbody.velocity = _smoothedMovementInput * _moveSpeed;
         
         _playerAnimator.SetFloat("moveX", _smoothedMovementInput.x);
         _playerAnimator.SetFloat("moveY", _smoothedMovementInput.y);

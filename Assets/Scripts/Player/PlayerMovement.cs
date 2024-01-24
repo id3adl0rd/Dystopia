@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInput.Enable();
+        //_playerInput.Enable();
     }
 
     private void OnDisable()

@@ -43,10 +43,13 @@ public class AmbientController : MonoBehaviour
             _currentAmbient = Random.Range(0, _ambientClips.Length);
             audio = _ambientClips[_currentAmbient];
         }
+
+        if (_dynamic.volume > 0)
+        {
+            _dynamic.clip = _dynamicAmbientClips[_currentAmbient];
+            _dynamic.Play();
+        }
         
-        Debug.Log(_ambient);
-        
-        _ambient.clip = audio;
         _ambient.clip = audio;
         _ambient.Play();
         StartAmbient(_ambient);
@@ -68,8 +71,6 @@ public class AmbientController : MonoBehaviour
     
     public void StartDynamic(AudioClip audio)
     {
-        Debug.Log("btw me here too");
-        
         if (audio == null)
         {
             audio = _dynamicAmbientClips[_currentAmbient];

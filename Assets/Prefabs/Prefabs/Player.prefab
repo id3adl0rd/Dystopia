@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3839085940728193235}
   - component: {fileID: 3540595168197941533}
-  - component: {fileID: 7011714635073889229}
   - component: {fileID: 4449194254031679426}
   - component: {fileID: 9076217113616254424}
   - component: {fileID: 7346696017019221490}
@@ -53,43 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73965f7dc378e08f2a64448ca772ff33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _walkSpeed: 0
+  _sprintSpeed: 0
   _rotationSpeed: 250
---- !u!58 &7011714635073889229
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656119182535806620}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.45
 --- !u!50 &4449194254031679426
 Rigidbody2D:
   serializedVersion: 4
@@ -176,7 +141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7011714635073889229}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6

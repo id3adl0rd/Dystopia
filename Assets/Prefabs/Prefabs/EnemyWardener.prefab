@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 361342387513035416}
   - component: {fileID: -7635769185261910696}
   - component: {fileID: 3562653819708242336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyWardener
   m_TagString: Untagged
   m_Icon: {fileID: 0}

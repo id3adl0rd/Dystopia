@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bangers SDF Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: c8a44f55544c96221bd8a9130ebee94a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   material: {fileID: 2100000}
   materialHashCode: -2079879681
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 5dd49b3eacc540408c98eee0de38e0f1
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1,
+  m_SourceFontFileGUID: 03f5b391e22804e6ca4af22cdba62861
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 03f5b391e22804e6ca4af22cdba62861,
     type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 03f5b391e22804e6ca4af22cdba62861, type: 3}
   m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FamilyName: Bangers
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_FallbackFontAssetTable: []
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 5dd49b3eacc540408c98eee0de38e0f1
+    sourceFontFileGUID: 03f5b391e22804e6ca4af22cdba62861
     pointSizeSamplingMode: 1
     pointSize: 144
     padding: 10
@@ -201,7 +201,7 @@ MonoBehaviour:
     atlasHeight: 1024
     characterSetSelectionMode: 6
     characterSequence: 
-    referencedFontAssetGUID: 125cb55b44b24c4393181402bc6200e6
+    referencedFontAssetGUID: f4049b3aacf699a6884f8a2e72dc7b10
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0

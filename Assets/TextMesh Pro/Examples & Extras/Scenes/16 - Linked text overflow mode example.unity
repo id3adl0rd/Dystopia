@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: c76d18757a194d618355f05f815cb0a1, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1a3683436ce2b3b088ebafe5f3b60b32, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -334,8 +334,8 @@ MonoBehaviour:
     The text Overflow - Linked mode makes it possible to create sophisticated text
     layout similar to those seen in magazines and web pages.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -560,8 +560,8 @@ MonoBehaviour:
     The text Overflow - Linked mode makes it possible to create sophisticated text
     layout similar to those seen in magazines and web pages.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -771,8 +771,8 @@ MonoBehaviour:
     The text Overflow - Linked mode makes it possible to create sophisticated text
     layout similar to those seen in magazines and web pages.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 4ccf43d26c4748c792174516f4a8fcef, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4632e87e79fc0493ca56dbeb181eb32a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -986,8 +986,8 @@ MonoBehaviour:
     The text Overflow - Linked mode makes it possible to create sophisticated text
     layout similar to those seen in magazines and web pages.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

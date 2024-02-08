@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InvincibilityController : MonoBehaviour
 {
-    private HealthController _healthController;
+    private AbstractHealthController _healthController;
 
     private void Awake()
     {
-        _healthController = GetComponent<HealthController>();
+        _healthController = GetComponent<AbstractHealthController>();
     }
 
     public void StartInvincibility(float invincibilityDuration)

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF - Overlay
-  m_Shader: {fileID: 4800000, guid: a02a7d8c237544f1962732b55a9aebf1, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7be59a5f309b271259750c892ac59b3b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 28684132378477856, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        m_Texture: {fileID: 28684132378477856, guid: c41f4d542f9d14af6893e52f80198a24,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

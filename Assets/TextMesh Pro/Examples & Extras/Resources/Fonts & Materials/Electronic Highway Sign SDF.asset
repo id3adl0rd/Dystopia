@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Electronic Highway Sign SDF Material
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 39964908eaafa8f928d8f7e1cfebb5ec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   material: {fileID: 2140032}
   materialHashCode: 225402433
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 8a2b9e2a607dd2143b58c44bc32410b4
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4,
+  m_SourceFontFileGUID: 2857385deecc8bfb1b51d000f404fd50
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 2857385deecc8bfb1b51d000f404fd50,
     type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 2857385deecc8bfb1b51d000f404fd50, type: 3}
   m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FamilyName: Electronic Highway Sign
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_FallbackFontAssetTable: []
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 8a2b9e2a607dd2143b58c44bc32410b4
+    sourceFontFileGUID: 2857385deecc8bfb1b51d000f404fd50
     pointSizeSamplingMode: 1
     pointSize: 144
     padding: 10

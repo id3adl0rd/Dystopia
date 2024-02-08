@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 11524e094c470854f8c4a86c11637ee9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8c06d5d9e54e3e8b5bc3be19be64744b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -75,7 +75,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a3fc3f02416b4d21aaea04f91ffe8b65, type: 2}
+  m_Motion: {fileID: 7400000, guid: e984390b680e9a2bd8ebd1c5702c0ffc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -115,7 +115,7 @@ BlendTree:
   m_Name: Walking
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d4973d39df92c9f5e818dbac8791271d, type: 2}
+    m_Motion: {fileID: 7400000, guid: 50765eca1348ab1f9962310b2c1f70a1, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -123,7 +123,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 625e5a926b5895c5e9cb5eaae1b61ca6, type: 2}
+    m_Motion: {fileID: 7400000, guid: b8b2a62cc86ec056c8278cda00906332, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -131,7 +131,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8826d1b07795386b1a04a3b9f0d92db5, type: 2}
+    m_Motion: {fileID: 7400000, guid: fd4bd05e825dd5818b9e509a5a6eca0e, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -139,7 +139,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 3f768f3567241fd19ad2b9ace0332ebc, type: 2}
+    m_Motion: {fileID: 7400000, guid: 32d1f886f817d8e9f8505481c615b5f9, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1

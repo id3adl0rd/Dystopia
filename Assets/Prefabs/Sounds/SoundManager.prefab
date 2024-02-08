@@ -44,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 454525197107120163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9c7da62ad57d7538e88a20f4821846, type: 3}
+  m_Script: {fileID: 11500000, guid: e1bd87478fc14fbf58cd585e24581066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 5020249302694301191}
@@ -250,12 +250,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 454525197107120163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4e3944fa2f186f2a063f3a9aa9b87b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a90138d3a2d69933b8282f557ae4542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ambientClips:
-  - {fileID: 8300000, guid: 59eecbd34d2daaae08f2e4200a6b1e91, type: 3}
-  - {fileID: 8300000, guid: a5d3b6cfed81b045c91f95f2518b81f4, type: 3}
+  - {fileID: 8300000, guid: 793c1deb7b0a61b1ab59aadf6de58705, type: 3}
+  - {fileID: 8300000, guid: 532e5806a85e83ec2bab29768f6de85f, type: 3}
   _dynamicAmbientClips:
-  - {fileID: 8300000, guid: d7e4534d24de2bd48a5a4eca9ecb60eb, type: 3}
-  - {fileID: 8300000, guid: 2fb4e30ca467c3a108b5e73927c54181, type: 3}
+  - {fileID: 8300000, guid: b32a5b0d6da49062aa10689a9507fd47, type: 3}
+  - {fileID: 8300000, guid: 380a6090f8405356294d12cf77e23f37, type: 3}

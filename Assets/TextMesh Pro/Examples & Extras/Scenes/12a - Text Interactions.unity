@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 82550135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d736ce056cf444ca96e424f4d9c42b76, type: 3}
+  m_Script: {fileID: 11500000, guid: 01065e7dddbb67c1599566ebf195304f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextEventHandler: {fileID: 1647263047}
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647263045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21256c5b62f346f18640dad779911e20, type: 3}
+  m_Script: {fileID: 11500000, guid: a83bbc919f4cb656ea79927af0623f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowCharacters: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647263045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1312ae25639a4bae8e25ae223209cc50, type: 3}
+  m_Script: {fileID: 11500000, guid: f624a1802e8bb11a5a7fd3d2cb89813c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_OnCharacterSelection:
@@ -486,8 +486,8 @@ MonoBehaviour:
   m_text: See the <link="ID_01"><u><#40A0FF>online documentation</color></u></link>
     for more information <u><link="ID_02">about this product</link></u> \U0001F60A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -575,7 +575,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  - {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -662,7 +662,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2103686, guid: c41005c129ba4d66911b75229fd70b45, type: 2}
+  - {fileID: 2103686, guid: 7fb7bea261b229c279c02909fcd37baf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767744558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1312ae25639a4bae8e25ae223209cc50, type: 3}
+  m_Script: {fileID: 11500000, guid: f624a1802e8bb11a5a7fd3d2cb89813c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_OnCharacterSelection:
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_text: See the <link="ID_01"><u><#40A0FF>online documentation</color></u></link>
     for more information <u><link="ID_02">about this product</link></u>.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767744558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21256c5b62f346f18640dad779911e20, type: 3}
+  m_Script: {fileID: 11500000, guid: a83bbc919f4cb656ea79927af0623f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowCharacters: 0

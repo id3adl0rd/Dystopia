@@ -155,8 +155,8 @@ MonoBehaviour:
     <sprite=5> with Text in <smallcaps>TextMesh</smallcaps><#40a0ff>Pro</color><sprite=0>
     and Unity 4.6 & 5.x <sprite=2>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 749b9069dc4742c5bfa5c74644049926, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afd992d59c93b318cad1e7c09406bbbe, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 1dcd98c5060504dfc9bc6e68e5e8237a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -172,7 +172,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: fbef3c704dce48f08a44612d6c856c8d, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: c84d44e53b39b4dedb0b1f02af9cda93, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 323282589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32c266ee6204b21a427753cb0694c81, type: 3}
+  m_Script: {fileID: 11500000, guid: ed2584e69d5ab0c969bab7ffae7d9efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &577034186
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2102322, guid: fbef3c704dce48f08a44612d6c856c8d, type: 2}
+  m_Material: {fileID: 2102322, guid: c84d44e53b39b4dedb0b1f02af9cda93, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -501,9 +501,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_fontAsset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: fbef3c704dce48f08a44612d6c856c8d, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: c84d44e53b39b4dedb0b1f02af9cda93, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 2102322, guid: fbef3c704dce48f08a44612d6c856c8d, type: 2}
+  m_sharedMaterial: {fileID: 2102322, guid: c84d44e53b39b4dedb0b1f02af9cda93, type: 2}
   m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 1464317158}

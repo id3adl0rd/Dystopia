@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bangers SDF Glow
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: c8a44f55544c96221bd8a9130ebee94a, type: 3}
   m_ShaderKeywords: GLOW_ON UNDERLAY_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -28,11 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
-        m_Texture: {fileID: 2800000, guid: 2ce5c55e85304b819a1826ecbc839aa5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1e22a31a2f0ddc10f84d43a27dbb3415, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28584486757587946, guid: 125cb55b44b24c4393181402bc6200e6,
+        m_Texture: {fileID: 28584486757587946, guid: f4049b3aacf699a6884f8a2e72dc7b10,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

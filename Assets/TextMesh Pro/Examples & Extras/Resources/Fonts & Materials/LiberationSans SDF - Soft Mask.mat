@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF - Soft Mask
-  m_Shader: {fileID: 4800000, guid: bc1ede39bf3643ee8e493720e4259791, type: 3}
+  m_Shader: {fileID: 4800000, guid: f2d4267f7fe48761999274085a267401, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -32,12 +32,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28684132378477856, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        m_Texture: {fileID: 28684132378477856, guid: c41f4d542f9d14af6893e52f80198a24,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 10c49fcd9c64421db7c0133e61e55f97, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3812264d7d86df60eb8987d8d73f13d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:

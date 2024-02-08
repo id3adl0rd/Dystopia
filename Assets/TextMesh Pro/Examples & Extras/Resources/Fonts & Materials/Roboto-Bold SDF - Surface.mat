@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Bold SDF - Surface
-  m_Shader: {fileID: 4800000, guid: 85187c2149c549c5b33f0cdb02836b17, type: 3}
+  m_Shader: {fileID: 4800000, guid: 55e80ade5c647352cbac0c7c6e02f74d, type: 3}
   m_ShaderKeywords: UNDERLAY_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28204114720316640, guid: 5302535af1044152a457ed104f1f4b91,
+        m_Texture: {fileID: 28204114720316640, guid: c4f8a86b1113cd3349269223e4628656,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

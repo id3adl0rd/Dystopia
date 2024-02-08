@@ -329,8 +329,8 @@ MonoBehaviour:
   m_text: Select Words or Links to interact with them or Hold Shift Key to interact
     with individual Characters.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: f2dcf029949142e28b974630369c8b4e, type: 2}
+  m_Material: {fileID: 2100000, guid: 986fc6afc7d61c2a5b79eae514d072e6, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -480,10 +480,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4049b3aacf699a6884f8a2e72dc7b10, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 2100000, guid: f2dcf029949142e28b974630369c8b4e, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 986fc6afc7d61c2a5b79eae514d072e6, type: 2}
   m_isDefaultMaterial: 1
   m_padding: 5.96
   m_canvasRenderer: {fileID: 694875409}
@@ -526,10 +526,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 934502347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05dcd8be7ec4ccbb35c26219884aa37, type: 3}
+  m_Script: {fileID: 11500000, guid: a79b52ded91b30c819b1f0ddb846ac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextPopup_Prefab_01: {fileID: 22450954, guid: b06f0e6c1dfa4356ac918da1bb32c603,
+  TextPopup_Prefab_01: {fileID: 22450954, guid: 0a95fe0a5fd27a090b677b6029567af4,
     type: 3}
 --- !u!114 &934502349
 MonoBehaviour:
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 934502347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21256c5b62f346f18640dad779911e20, type: 3}
+  m_Script: {fileID: 11500000, guid: a83bbc919f4cb656ea79927af0623f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowCharacters: 0
@@ -581,8 +581,8 @@ MonoBehaviour:
     <<#ffff00>/link</color>> tag allows adding <link="id_02"><u><i><#80ff80>links</color></i></u></link>
     within a text object in <font="Bangers SDF">TextMesh<#40a0ff>Pro!</font>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41f4d542f9d14af6893e52f80198a24, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6f216ba8b6721572694fc1af6266d2ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

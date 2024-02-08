@@ -11,7 +11,7 @@ public class PlayerTestAttack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<EnemyMovement>())
         {
-            var healthController = collision.gameObject.GetComponent<HealthController>();
+            var healthController = collision.gameObject.GetComponent<NPCHealthController>();
             healthController.TakeDamage(_damageAmount);
 
             SoundManager.PlaySound(_attackSound);

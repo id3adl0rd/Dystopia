@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Anton SDF - Drop Shadow
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 39964908eaafa8f928d8f7e1cfebb5ec, type: 3}
   m_ShaderKeywords: OUTLINE_ON UNDERLAY_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28933816116536082, guid: 8a89fa14b10d46a99122fd4f73fca9a2,
+        m_Texture: {fileID: 28933816116536082, guid: afd992d59c93b318cad1e7c09406bbbe,
           type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}

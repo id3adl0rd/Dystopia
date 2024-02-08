@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Bold SDF Material
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 39964908eaafa8f928d8f7e1cfebb5ec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   material: {fileID: 2164040}
   materialHashCode: -1838732846
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 4beb055f07aaff244873dec698d0363e
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e,
+  m_SourceFontFileGUID: e772b939d6c3cf4bdbce7aa6832dc8b7
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e772b939d6c3cf4bdbce7aa6832dc8b7,
     type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: e772b939d6c3cf4bdbce7aa6832dc8b7, type: 3}
   m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FamilyName: Roboto
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_FallbackFontAssetTable: []
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 4beb055f07aaff244873dec698d0363e
+    sourceFontFileGUID: e772b939d6c3cf4bdbce7aa6832dc8b7
     pointSizeSamplingMode: 1
     pointSize: 90
     padding: 9
@@ -201,7 +201,7 @@ MonoBehaviour:
     atlasHeight: 1024
     characterSetSelectionMode: 6
     characterSequence: 20-7E,A0,200B,2026
-    referencedFontAssetGUID: 5302535af1044152a457ed104f1f4b91
+    referencedFontAssetGUID: c4f8a86b1113cd3349269223e4628656
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0

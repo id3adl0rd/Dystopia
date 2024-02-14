@@ -15,12 +15,11 @@ public class CharacterAim : MonoBehaviour
     {
         _playerInput = new PlayerInputControl();
     }
-
     private void FixedUpdate()
     {
-        Vector2 targetPosition = Mouse.current.position.ReadValue();
-        Vector2 position = transform.position;
-        Vector2 lookDirection = (targetPosition - position).normalized;
+        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 position = transform.position;
+        Vector3 lookDirection = (targetPosition - position).normalized;
 
         playerFOV.SetOrigin(position);
         playerFOV.SetAimDirection(lookDirection);

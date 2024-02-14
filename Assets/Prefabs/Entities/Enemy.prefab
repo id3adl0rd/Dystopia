@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: -4762038424712861471}
   - component: {fileID: -7158368134751830930}
   - component: {fileID: -1784564814397366708}
-  - component: {fileID: -3942186409153922386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +46,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5242aa8ef611cbee7bc3ccf609c774f8, type: 3}
+  m_Script: {fileID: 11500000, guid: dec74ae3c1613be17980c90c41c65051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAwarenessDistance: 5
@@ -87,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58536a254f86e7e18cb205143ad7530, type: 3}
+  m_Script: {fileID: 11500000, guid: c0bda59e4cde6edeb8af68c4087d18db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
@@ -101,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f1da1aecaee1a31813a9322b7bef3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b33649daf9762833b598a42a35a2095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
@@ -140,42 +139,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!114 &-3942186409153922386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2153317593599886825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c08ba381bc44ea1b242ce5ec403c02e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maximumHealth: 100
-  OnDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -3942186409153922386}
-        m_TargetAssemblyTypeName: NPCHealthController, Assembly-CSharp
-        m_MethodName: DestroyMe
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _spawnerParent: {fileID: 0}
 --- !u!1 &6766169669431594972
 GameObject:
   m_ObjectHideFlags: 0

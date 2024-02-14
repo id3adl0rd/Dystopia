@@ -39,7 +39,7 @@ public class EnemySpawnerController : MonoBehaviour
             SetTimeUntilSpawn();
             _enemyList.Add(obj);
 
-            var _npcEvents = obj.GetComponent<NPCHealthEvents>();
+            var _npcEvents = obj.GetComponent<NPCHealthController>();
 
             if (_npcEvents._spawnerParent == null)
             {

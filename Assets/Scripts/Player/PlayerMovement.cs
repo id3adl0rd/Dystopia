@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private ParticleSystem _dust;
+    
     [FormerlySerializedAs("_moveSpeed")] [SerializeField]
     private float _walkSpeed;
     [SerializeField]
@@ -13,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float _moveSpeed;
     private bool isSprinting;
+    private bool isInteract;
 
     [SerializeField]
     private float _rotationSpeed;
@@ -38,12 +42,16 @@ public class PlayerMovement : MonoBehaviour
         OnEnable();
         _playerInput.Player.Sprint.performed += ctx => SprintPressed();
         _playerInput.Player.Sprint.canceled += ctx => SprintReleased();
+        
+        _playerInput.Player.Interact.performed += ctx => InteractPressed();
+        _playerInput.Player.Interact.canceled += ctx => InteractReleased();
+        
         _moveSpeed = _walkSpeed;
     }
 
     private void OnEnable()
     {
-        _playerInput.Enable();
+        //_playerInput.Enable();
     }
 
     private void OnDisable()
@@ -53,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DialogueManager.GetInstance()._dialogueIsPlaying)
+            return;
+        
         SetPlayerVelocity();
         //RotateInDirectionOfInput();
     }
@@ -67,6 +78,16 @@ public class PlayerMovement : MonoBehaviour
     {
         isSprinting = false;
         _moveSpeed = _walkSpeed;
+    }
+    
+    public void InteractPressed()
+    {
+        isInteract = true;
+    }
+
+    public void InteractReleased()
+    {
+        isInteract = false;
     }
 
     private void SetPlayerVelocity()
@@ -85,10 +106,12 @@ public class PlayerMovement : MonoBehaviour
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
+            _dust.Play();
         }
         else
         {
             _playerAnimator.SetBool("isMoving", false);
+            _dust.Stop();
         }
     }
 
@@ -107,5 +130,4 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementInput = inputValue.Get<Vector2>();
     }
-
 }

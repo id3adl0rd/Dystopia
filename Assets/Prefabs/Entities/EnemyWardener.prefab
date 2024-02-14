@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 3321668354521964771}
   - component: {fileID: -7990785954523478491}
   - component: {fileID: 361342387513035416}
-  - component: {fileID: 8422519704636629983}
-  m_Layer: 0
+  - component: {fileID: -7635769185261910696}
+  - component: {fileID: 3562653819708242336}
+  m_Layer: 7
   m_Name: EnemyWardener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5242aa8ef611cbee7bc3ccf609c774f8, type: 3}
+  m_Script: {fileID: 11500000, guid: dec74ae3c1613be17980c90c41c65051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAwarenessDistance: 5
@@ -87,7 +88,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bbc6c33926f980ed8cbb60eecc505d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ce92cc7ae18d1e299e0438c0d835ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
@@ -136,11 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f1da1aecaee1a31813a9322b7bef3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b33649daf9762833b598a42a35a2095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
---- !u!114 &8422519704636629983
+--- !u!114 &-7635769185261910696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2153317593599886825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c08ba381bc44ea1b242ce5ec403c02e, type: 3}
+  m_Script: {fileID: 11500000, guid: bfac2a2abaab141d89b7df758cd022eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 0
@@ -157,9 +158,9 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8422519704636629983}
-        m_TargetAssemblyTypeName: NPCHealthController, Assembly-CSharp
-        m_MethodName: OnNPCDeath
+      - m_Target: {fileID: -7635769185261910696}
+        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
+        m_MethodName: DestroyMe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,9 +170,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8422519704636629983}
-        m_TargetAssemblyTypeName: NPCHealthController, Assembly-CSharp
-        m_MethodName: DestroyMe
+      - m_Target: {fileID: 3562653819708242336}
+        m_TargetAssemblyTypeName: NPCHealthEvents, Assembly-CSharp
+        m_MethodName: OnNPCDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -187,6 +188,18 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3562653819708242336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153317593599886825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14efbecdfad0063bba05bf43badd979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _spawnerParent: {fileID: 0}
 --- !u!1 &6766169669431594972
 GameObject:

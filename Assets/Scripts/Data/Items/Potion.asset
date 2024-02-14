@@ -9,11 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d608a5adae49ca85f0bc3cb755fdc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9016b2d9b2464ea2b1d26e26168f47df, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 1
-  <Name>k__BackingField: Potion
-  <Description>k__BackingField: Just another potion
+  ItemPrefab: {fileID: 8038026475789020531, guid: a333b6ec8635d13b48d0cd5b93051e0d, type: 3}
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  <Name>k__BackingField: "\u0417\u0415\u041B\u042F"
+  <Description>k__BackingField: "\u0417\u0415\u041B\u042C\u0415"
   <ItemImage>k__BackingField: {fileID: -3679828817949995438, guid: 2c8226082c87fb35b9585164d1ff6670, type: 3}
+  <DefaultParametersList>k__BackingField: []
+  _modifierDatas:
+  - statModifier: {fileID: 11400000, guid: ee2f244a3f7c7df53ae54884acdf4068, type: 2}
+    value: 5
+  <actionSfx>k__BackingField: {fileID: 8300000, guid: 8b63739b89ffad4b4a99085de2e2dce0, type: 3}

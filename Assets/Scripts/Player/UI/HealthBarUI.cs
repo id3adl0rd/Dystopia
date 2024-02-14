@@ -10,6 +10,6 @@ public class HealthBarUI : MonoBehaviour
 
     public void UpdateHealthBar(PlayerHealthController healthController)
     {
-        _healthBarForegroundImage.fillAmount = Mathf.Lerp(_healthBarForegroundImage.fillAmount, healthController.RemainingHealthPercentage, 0.5f);
+        _healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;
     }
 }

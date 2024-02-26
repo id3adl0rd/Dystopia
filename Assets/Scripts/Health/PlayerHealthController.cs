@@ -3,9 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerHealthController : AbstractHealthController, IDamageable
 {
-    public UnityEvent OnDied;
-    public UnityEvent OnDamaged;
-    public UnityEvent OnHealthChanged;
+    public UnityEvent OnDied, OnDamaged, OnHealthChanged;
     
     public void TakeDamage(float damageAmount)
     {

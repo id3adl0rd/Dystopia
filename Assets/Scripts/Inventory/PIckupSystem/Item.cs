@@ -9,20 +9,19 @@ public class Item : MonoBehaviour
     [field: SerializeField] public int _quantity { get; set; } = 1;
     [field: SerializeField] private AudioSource _audioSource;
     [field: SerializeField] private float _duration = 0.3f;
+    [field: SerializeField] private float _durationProtection = 0.5f;
 
     public void SetItem(ItemSO item = null)
     {
         GetComponent<SpriteRenderer>().sprite = item.ItemImage;
-        _inventoryItem.ItemImage = item.ItemImage;
-        _inventoryItem.Description = item.Description;
-        _inventoryItem.Name = item.Name;
+        _inventoryItem = item;
+        StartCoroutine(JustSpawned());
     }
     
     private void Start()
     {
         if (_inventoryItem != null)
         {
-            Debug.Log("dsadadcxzcdsa");
             GetComponent<SpriteRenderer>().sprite = _inventoryItem.ItemImage;
         }
     }
@@ -47,5 +46,12 @@ public class Item : MonoBehaviour
         }
         
         Destroy(gameObject);
+    }
+
+    private IEnumerator JustSpawned()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(_durationProtection);
+        GetComponent<Collider2D>().enabled = true;
     }
 }

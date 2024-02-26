@@ -21,14 +21,14 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         if (_playerInRange && !DialogueManager.GetInstance()._dialogueIsPlaying)
-        {
             visualCue.SetActive(true);
-            
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-                DialogueManager.GetInstance().EnterDialogueMode(_dialogueJSON);
-        }
         else
             visualCue.SetActive(false);
+    }
+
+    public void EnterDialogue()
+    {
+        DialogueManager.GetInstance().EnterDialogueMode(_dialogueJSON);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

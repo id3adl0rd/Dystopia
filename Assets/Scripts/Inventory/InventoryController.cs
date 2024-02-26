@@ -17,9 +17,12 @@ namespace Inventory
 
         [SerializeField] private AudioClip _dropClip;
         [SerializeField] private AudioSource _audioSource;
-    
+
+        private Player _player;
+        
         private void Start()
         {
+            _player = GetComponent<Player>();
             PrepareUI();
             PrepareInventoryData();
         }
@@ -132,7 +135,7 @@ namespace Inventory
             Debug.Log(inventoryItemStruct._item.ItemPrefab);
 
             var t_ = transform.position;
-            t_.y += 1;
+            //t_.y += 1;
             
             GameObject obj = Instantiate(inventoryItemStruct._item.ItemPrefab, t_, Quaternion.identity);
             obj.GetComponent<Item>().SetItem(inventoryItemStruct._item);
@@ -166,24 +169,26 @@ namespace Inventory
             }
         }
 
-        public void Update()
+        public void OpenInventory()
         {
-            if (Keyboard.current.iKey.wasPressedThisFrame)
+            if (_inventoryUI.isActiveAndEnabled == false)
             {
-                if (_inventoryUI.isActiveAndEnabled == false)
-                {
-                    _inventoryUI.Show();
+                _inventoryUI.Show();
 
-                    foreach (var item in _inventoryData.GetCurrentInventoryState())
-                    {
-                        _inventoryUI.UpdateData(item.Key, item.Value._item.ItemImage, item.Value._quantity);
-                    }
-                }
-                else
+                foreach (var item in _inventoryData.GetCurrentInventoryState())
                 {
-                    _inventoryUI.Hide();
+                    _inventoryUI.UpdateData(item.Key, item.Value._item.ItemImage, item.Value._quantity);
                 }
             }
+            else
+            {
+                CloseInventory();
+            }
+        }
+
+        public void CloseInventory()
+        {
+            _inventoryUI.Hide();
         }
     }
 }

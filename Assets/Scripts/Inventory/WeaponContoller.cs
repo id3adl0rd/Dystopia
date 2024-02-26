@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Inventory
 {
-    public class AgentWeapon : MonoBehaviour
+    public class WeaponContoller : MonoBehaviour
     {
         [SerializeField] private EquippableItemSO _weapon;
         [SerializeField] private InventorySO _inventoryData;

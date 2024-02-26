@@ -77,7 +77,7 @@ namespace Inventory.Model
             {
                 if (_inventoryItems[i].IsEmpty)
                     continue;
-
+                
                 if (_inventoryItems[i]._item.ID == item.ID)
                 {
                     int possibleCount = _inventoryItems[i]._item.MaxStackSize - _inventoryItems[i]._quantity;

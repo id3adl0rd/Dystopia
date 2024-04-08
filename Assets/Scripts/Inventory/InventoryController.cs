@@ -11,7 +11,7 @@ namespace Inventory
     {
         [SerializeField] private InventoryPage _inventoryUI;
 
-        [SerializeField] private InventorySO _inventoryData;
+        [SerializeField] public InventorySO _inventoryData;
 
         public List<InventoryItemStruct> initialItems = new List<InventoryItemStruct>();
 
@@ -128,18 +128,28 @@ namespace Inventory
             }
         }
 
+        public void AddItem(Item item, int quantity = 0, List<ItemParameter> itemState = null)
+        {
+            if (quantity == 0)
+                quantity = item._quantity;
+            
+            int reminder = _inventoryData.AddItem(item._inventoryItem, quantity, itemState);
+            if (reminder == 0)
+            {
+                item.DestroyItem();
+            }
+            else
+            {
+                item._quantity = reminder;
+            }
+        }
+        
         private void DropItem(int itemIndex, int inventoryItemQuantity)
         {
             var inventoryItemStruct = _inventoryData.GetCurrentInventoryState()[itemIndex];
-            
-            Debug.Log(inventoryItemStruct._item.ItemPrefab);
+            GameObject obj = Instantiate(inventoryItemStruct._item.ItemPrefab, transform.position, Quaternion.identity);
+            obj.GetComponent<Item>().SetItem(inventoryItemStruct._item, inventoryItemQuantity);
 
-            var t_ = transform.position;
-            //t_.y += 1;
-            
-            GameObject obj = Instantiate(inventoryItemStruct._item.ItemPrefab, t_, Quaternion.identity);
-            obj.GetComponent<Item>().SetItem(inventoryItemStruct._item);
-            
             _inventoryData.RemoveItem(itemIndex, inventoryItemQuantity);
             _inventoryUI.ResetSelection();
             

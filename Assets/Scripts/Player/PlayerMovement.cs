@@ -115,7 +115,14 @@ public class PlayerMovement : MonoBehaviour
     //OnFire => Click
     public void OnFire(InputAction.CallbackContext context)
     {
+        if (!context.started) return;
+
+        var rayHit = Physics2D.GetRayIntersection(_player._camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!rayHit.collider) return;
         
+        IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
+        if (interact != null)
+            interact.OnClick(_player, rayHit.collider.gameObject);
     }
 
     public void OnSprint(InputAction.CallbackContext context)
@@ -141,6 +148,15 @@ public class PlayerMovement : MonoBehaviour
             isInteract = true;
         else
             isInteract = false;
+        
+        if (!context.started) return;
+
+        var rayHit = Physics2D.GetRayIntersection(_player._camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!rayHit.collider) return;
+        
+        IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
+        if (interact != null)
+            interact.OnClick(_player, rayHit.collider.gameObject);
     }
 
     public void OnInventory(InputAction.CallbackContext context)

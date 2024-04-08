@@ -23,7 +23,6 @@ public class PlayerAmbientController : MonoBehaviour
             _coroutine = null;
         }
         
-        Debug.Log("calling here");
         _coroutine = DynamicAmbientCoroutine(dynamicAmbientDuration);
         StartCoroutine(_coroutine);
     }

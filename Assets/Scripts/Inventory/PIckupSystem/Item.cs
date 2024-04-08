@@ -3,7 +3,7 @@ using System.Collections;
 using Inventory.Model;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : InteractableObject, IInteract
 {
     [field: SerializeField] public ItemSO _inventoryItem { get; set; }
     [field: SerializeField] public int _quantity { get; set; } = 1;
@@ -11,11 +11,11 @@ public class Item : MonoBehaviour
     [field: SerializeField] private float _duration = 0.3f;
     [field: SerializeField] private float _durationProtection = 0.5f;
 
-    public void SetItem(ItemSO item = null)
+    public void SetItem(ItemSO item = null, int quantity = 1)
     {
         GetComponent<SpriteRenderer>().sprite = item.ItemImage;
         _inventoryItem = item;
-        StartCoroutine(JustSpawned());
+        _quantity = quantity;
     }
     
     private void Start()
@@ -48,10 +48,20 @@ public class Item : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator JustSpawned()
+    public void OnClick(Player _player, GameObject gameObject)
     {
-        GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(_durationProtection);
-        GetComponent<Collider2D>().enabled = true;
+        OnInteract(_player, gameObject);
+    }
+
+    protected override void OnInteract(Player _player, GameObject gameObject)
+    {
+        float minDist = .9f;
+        float dist = Vector2.Distance(gameObject.transform.position, _player.gameObject.transform.position);
+        
+        if (minDist >= dist)
+        {
+            Item _item = gameObject.GetComponent<Item>();
+            _player._inventoryController.AddItem(_item);  
+        }
     }
 }

@@ -11,6 +11,9 @@ public class PlayerAmbientController : MonoBehaviour
 
     private void Awake()
     {
+        /*
+        _ambientController = GameObject.Find("SoundManager").GetComponent<AmbientController>();
+        */
         _ambientController = AmbientController.instance;
     }
 
@@ -29,6 +32,7 @@ public class PlayerAmbientController : MonoBehaviour
 
     private IEnumerator DynamicAmbientCoroutine(float dynamicAmbientDuration)
     {
+        Debug.Log(_ambientController);
         _ambientController.InCombat = true;
         _ambientController.StartDynamic(null);
         _inProcess = true;

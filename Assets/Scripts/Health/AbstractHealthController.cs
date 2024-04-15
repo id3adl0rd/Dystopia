@@ -7,8 +7,7 @@ public abstract class AbstractHealthController : MonoBehaviour
     [SerializeField]
     private protected float _maximumHealth = 100;
 
-    [SerializeField]
-    private protected Rigidbody2D _rb;
+    private protected Player _player;
     
     public float RemainingHealthPercentage
     {
@@ -22,7 +21,7 @@ public abstract class AbstractHealthController : MonoBehaviour
     
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
         _currentHealth = _maximumHealth;
     }
 }

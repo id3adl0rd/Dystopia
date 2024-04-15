@@ -17,7 +17,6 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
         OnHealthChanged.Invoke();
         
         transform.position = new Vector2(transform.position.x + knockback.x, transform.position.y + knockback.y);
-        //_rb.AddForce(knockback, ForceMode2D.for);
         
         if (_currentHealth < 0)
             _currentHealth = 0;

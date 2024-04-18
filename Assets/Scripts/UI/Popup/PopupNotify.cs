@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PopupNotify : MonoBehaviour
 {
-    public TMP_Text popupText;
+    [SerializeField] private TMP_Text popupText;
 
     private GameObject window;
     private Animator popupAnimator;
@@ -27,7 +27,7 @@ public class PopupNotify : MonoBehaviour
             queueChecker = StartCoroutine(CheckQueue());
     }
 
-    private void ShowPopup(string text) { //parameter the same type as queue
+    private void ShowPopup(string text) {
         window.SetActive(true);
         popupText.text = text;
         popupAnimator.Play("PopupAnimation");

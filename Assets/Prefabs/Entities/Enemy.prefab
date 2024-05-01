@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 10
+  _knockbackForce: 0.1
 --- !u!58 &-1784564814397366708
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.3
 --- !u!114 &-3942186409153922386
 MonoBehaviour:
   m_ObjectHideFlags: 0

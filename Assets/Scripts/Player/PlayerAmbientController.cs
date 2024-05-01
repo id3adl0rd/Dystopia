@@ -11,10 +11,10 @@ public class PlayerAmbientController : MonoBehaviour
 
     private void Awake()
     {
-        /*
+        
         _ambientController = GameObject.Find("SoundManager").GetComponent<AmbientController>();
-        */
-        _ambientController = AmbientController.instance;
+        
+        //_ambientController = AmbientController.instance;
     }
 
     public void StartDynamic()

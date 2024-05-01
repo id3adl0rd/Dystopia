@@ -24,7 +24,7 @@ public class NPCHealthController : AbstractHealthController, IDamageable
         Destroy(gameObject);
     }
     
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, Vector2 knockback)
     {
         if (_currentHealth == 0)
             return;
@@ -34,6 +34,8 @@ public class NPCHealthController : AbstractHealthController, IDamageable
         
         _currentHealth -= damageAmount;
         OnHealthChanged.Invoke();
+        
+        transform.position = new Vector2(transform.position.x + knockback.x, transform.position.y + knockback.y);
 
         if (_currentHealth < 0)
             _currentHealth = 0;

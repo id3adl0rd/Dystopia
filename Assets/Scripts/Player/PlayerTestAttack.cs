@@ -12,12 +12,9 @@ public class PlayerTestAttack : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyMovement>())
         {
             var healthController = collision.gameObject.GetComponent<NPCHealthController>();
-            healthController.TakeDamage(_damageAmount);
+            //healthController.TakeDamage(_damageAmount);
             
-            bool isCriticalHit = Random.Range(0, 100) < 30;
-            DamagePopup.Create(collision.gameObject.transform.position, _damageAmount, isCriticalHit);
 
-            SoundManager.PlaySound(_attackSound);
         }
     }
 }

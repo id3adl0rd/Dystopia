@@ -17,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float _moveSpeed;
     public bool isSprinting { get; private set; }
-    public bool isInteract { get; private set; }
-    public bool isInventory { get; private set; }
 
     [SerializeField]
     private float _rotationSpeed;
@@ -30,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _playerAnimator;
 
+    private WeaponParent _weaponParent;
+
     public PlayerInputControl _playerInput { get; private set; }
 
     private Player _player;
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator = GetComponent<Animator>();
         _player = GetComponent<Player>();
         _playerInput = new PlayerInputControl();
+        _weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
     private void Start()
@@ -62,7 +63,12 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.Player.Interact.Disable();
         _playerInput.Player.Inventory.Disable();
     }
-    
+
+    private void Update()
+    {
+        _weaponParent.PointerPosition = GetPointerInput();
+    }
+
     private void FixedUpdate()
     {
         if (DialogueManager.GetInstance()._dialogueIsPlaying)
@@ -85,6 +91,10 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator.SetFloat("moveX", _smoothedMovementInput.x);
         _playerAnimator.SetFloat("moveY", _smoothedMovementInput.y);
 
+        /*
+        Debug.Log(_smoothedMovementInput);
+        */
+        
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
@@ -144,11 +154,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
-            isInteract = true;
-        else
-            isInteract = false;
-        
         if (!context.started) return;
 
         var rayHit = Physics2D.GetRayIntersection(_player._camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
@@ -167,5 +172,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void OnClick()
+    {
+        _weaponParent.Attack();
+    }
+
+    private Vector2 GetPointerInput()
+    {
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        mousePos.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }

@@ -8,15 +8,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Mask
   - BehindMask
   - Objects
   - Black
-  - 
-  - 
+  - MapObject
+  - RevealedArea
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2751963611
+    locked: 0
+  - name: MapObject
+    uniqueID: 748304419
+    locked: 0
+  - name: Top
+    uniqueID: 3362379
     locked: 0

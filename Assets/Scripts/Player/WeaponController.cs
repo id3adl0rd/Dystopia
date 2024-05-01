@@ -2,35 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _characterRender;
-    [SerializeField] private SpriteRenderer _weaponRender;
-    [SerializeField] public Vector2 pointerPosition { private get; set; }
-    [SerializeField] private Animator _animator;
-    [SerializeField] private float _delay = 0.3f;
-    private bool attackBlocked = false;
-    
-    public bool IsAttacking { get; private set; }
-
     [SerializeField] private Transform circleOrigin;
     [SerializeField] private float radius;
+
+    private WeaponParent _weaponParent;
     
-    public void Attack()
+    private void Awake()
     {
-        if (attackBlocked)
-            return;
-        
-        _animator.SetTrigger("Attack");
-        attackBlocked = true;
-        StartCoroutine(DelayAttack());
+        _weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
-    private IEnumerator DelayAttack()
+    public void Click()
     {
-        yield return new WaitForSeconds(_delay);
-        attackBlocked = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -38,13 +25,5 @@ public class WeaponController : MonoBehaviour
         Gizmos.color = Color.blue;
         Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
         Gizmos.DrawWireSphere(position, radius);
-    }
-
-    private void DetectColliders()
-    {
-        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
-        {
-            Debug.Log(collider.name);
-        }
     }
 }

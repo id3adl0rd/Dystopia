@@ -29,10 +29,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator _playerAnimator;
 
     private WeaponParent _weaponParent;
+    private RangeParent _rangeParent;
 
     public PlayerInputControl _playerInput { get; private set; }
 
     private Player _player;
+
+    private bool IsDusting;
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         _player = GetComponent<Player>();
         _playerInput = new PlayerInputControl();
         _weaponParent = GetComponentInChildren<WeaponParent>();
+        _rangeParent = GetComponentInChildren<RangeParent>();
     }
 
     private void Start()
@@ -67,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _weaponParent.PointerPosition = GetPointerInput();
+        _rangeParent.PointerPosition = GetPointerInput();
     }
 
     private void FixedUpdate()
@@ -98,12 +103,18 @@ public class PlayerMovement : MonoBehaviour
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
-            _dust.Play();
+
+            if (!IsDusting)
+            {
+                _dust.Play();
+                IsDusting = true;
+            }
         }
         else
         {
             _playerAnimator.SetBool("isMoving", false);
             _dust.Stop();
+            IsDusting = false;
         }
     }
 
@@ -174,9 +185,14 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void OnClick()
+    public void OnClick(InputAction.CallbackContext context)
     {
-        _weaponParent.Attack();
+        if (_weaponParent != null)
+        {
+            //_weaponParent.Attack();
+        }
+
+        _rangeParent.Fire(context);
     }
 
     private Vector2 GetPointerInput()

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,8 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float _sprintSpeed;
 
     private float _moveSpeed;
-    private bool isSprinting;
-    private bool isInteract;
+    public bool isSprinting { get; private set; }
 
     [SerializeField]
     private float _rotationSpeed;
@@ -28,35 +28,50 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _playerAnimator;
 
-    private PlayerInputControl _playerInput;
+    private WeaponParent _weaponParent;
+    private RangeParent _rangeParent;
+
+    public PlayerInputControl _playerInput { get; private set; }
+
+    private Player _player;
+
+    private bool IsDusting;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
+        _player = GetComponent<Player>();
+        _playerInput = new PlayerInputControl();
+        _weaponParent = GetComponentInChildren<WeaponParent>();
+        _rangeParent = GetComponentInChildren<RangeParent>();
     }
 
     private void Start()
     {
-        _playerInput = new PlayerInputControl();
-        OnEnable();
-        _playerInput.Player.Sprint.performed += ctx => SprintPressed();
-        _playerInput.Player.Sprint.canceled += ctx => SprintReleased();
-        
-        _playerInput.Player.Interact.performed += ctx => InteractPressed();
-        _playerInput.Player.Interact.canceled += ctx => InteractReleased();
+        //OnEnable();
         
         _moveSpeed = _walkSpeed;
     }
 
     private void OnEnable()
     {
-        //_playerInput.Enable();
+        _playerInput.Player.Sprint.Enable();
+        _playerInput.Player.Interact.Enable();
+        _playerInput.Player.Inventory.Enable();
     }
 
     private void OnDisable()
     {
-        _playerInput.Disable();
+        _playerInput.Player.Sprint.Disable();
+        _playerInput.Player.Interact.Disable();
+        _playerInput.Player.Inventory.Disable();
+    }
+
+    private void Update()
+    {
+        _weaponParent.PointerPosition = GetPointerInput();
+        _rangeParent.PointerPosition = GetPointerInput();
     }
 
     private void FixedUpdate()
@@ -66,28 +81,6 @@ public class PlayerMovement : MonoBehaviour
         
         SetPlayerVelocity();
         //RotateInDirectionOfInput();
-    }
-
-    private void SprintPressed()
-    {
-        isSprinting = true;
-        _moveSpeed = _sprintSpeed;
-    }
-
-    private void SprintReleased()
-    {
-        isSprinting = false;
-        _moveSpeed = _walkSpeed;
-    }
-    
-    public void InteractPressed()
-    {
-        isInteract = true;
-    }
-
-    public void InteractReleased()
-    {
-        isInteract = false;
     }
 
     private void SetPlayerVelocity()
@@ -103,15 +96,25 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator.SetFloat("moveX", _smoothedMovementInput.x);
         _playerAnimator.SetFloat("moveY", _smoothedMovementInput.y);
 
+        /*
+        Debug.Log(_smoothedMovementInput);
+        */
+        
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
-            _dust.Play();
+
+            if (!IsDusting)
+            {
+                _dust.Play();
+                IsDusting = true;
+            }
         }
         else
         {
             _playerAnimator.SetBool("isMoving", false);
             _dust.Stop();
+            IsDusting = false;
         }
     }
 
@@ -125,9 +128,79 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.MoveRotation(rotation);
         }
     }
-
-    private void OnMove(InputValue inputValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = inputValue.Get<Vector2>();
+        _movementInput = context.ReadValue<Vector2>().normalized;
+        
+        DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
+    }
+
+    //OnFire => Click
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+
+        var rayHit = Physics2D.GetRayIntersection(_player._camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!rayHit.collider) return;
+        
+        IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
+        if (interact != null)
+            interact.OnClick(_player, rayHit.collider.gameObject);
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _moveSpeed = _sprintSpeed;
+            isSprinting = true;
+            _player._staminaController.StartConsumingStamina();
+        }
+
+        if (context.canceled)
+        {
+            _moveSpeed = _walkSpeed;
+            isSprinting = false;
+            _player._staminaController.StartRegen();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+
+        var rayHit = Physics2D.GetRayIntersection(_player._camera.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        if (!rayHit.collider) return;
+        
+        IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
+        if (interact != null)
+            interact.OnClick(_player, rayHit.collider.gameObject);
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (_weaponParent != null)
+        {
+            _weaponParent.Attack();
+        }
+
+        //_rangeParent.Fire(context);
+    }
+
+    private Vector2 GetPointerInput()
+    {
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        mousePos.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }

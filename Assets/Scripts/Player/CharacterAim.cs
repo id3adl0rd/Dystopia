@@ -24,5 +24,4 @@ public class CharacterAim : MonoBehaviour
         playerFOV.SetOrigin(position);
         playerFOV.SetAimDirection(lookDirection);
     }
-
 }

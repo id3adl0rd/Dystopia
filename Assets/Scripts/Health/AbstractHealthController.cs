@@ -7,6 +7,8 @@ public abstract class AbstractHealthController : MonoBehaviour
     [SerializeField]
     private protected float _maximumHealth = 100;
 
+    private protected Player _player;
+    
     public float RemainingHealthPercentage
     {
         get
@@ -19,6 +21,7 @@ public abstract class AbstractHealthController : MonoBehaviour
     
     private void Awake()
     {
+        _player = GetComponent<Player>();
         _currentHealth = _maximumHealth;
     }
 }

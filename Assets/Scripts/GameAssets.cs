@@ -11,14 +11,15 @@ public class GameAssets : MonoBehaviour
         get
         {
             if (_i == null)
-            {
-                _i = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
-            }
+                _i = Instantiate(Resources.Load<GameAssets>("GameAssets"));
+            
             return _i;
         }
     }
 
-    public AudioClip _AudioClip;
+    public Transform _pfDamagePopup;
+    
+    //public AudioClip _AudioClip;
 
     //public Sprite CodeMonkeyHeadSprite;
 }

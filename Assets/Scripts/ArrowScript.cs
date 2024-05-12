@@ -8,7 +8,7 @@ public class ArrowScript : MonoBehaviour
 {
     [HideInInspector] public float ArrowVelocity;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private int _damageAmount = 10;
+    [SerializeField] private int _damageAmount = 25;
 
     private void Start()
     {
@@ -30,7 +30,8 @@ public class ArrowScript : MonoBehaviour
     {
         bool isCriticalHit = Random.Range(0, 100) < 30;
         int dmg = isCriticalHit == true ? _damageAmount * 2 : _damageAmount;
-
+        dmg = (int)(dmg * ArrowVelocity);
+        
         Vector2 direction = (collider.transform.position - transform.position).normalized;
 
         var obj = collider.gameObject; 

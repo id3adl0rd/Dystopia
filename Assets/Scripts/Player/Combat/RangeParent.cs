@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -21,8 +22,6 @@ public class RangeParent : MonoBehaviour
     private bool canFire = true;
     private bool _inCharging;
     
-    public int _damageAmount = 10;
-
     private void Update()
     {
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;

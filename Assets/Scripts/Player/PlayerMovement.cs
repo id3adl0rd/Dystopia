@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>().normalized;
+        
+        DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
     }
 
     //OnFire => Click
@@ -189,10 +191,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_weaponParent != null)
         {
-            //_weaponParent.Attack();
+            _weaponParent.Attack();
         }
 
-        _rangeParent.Fire(context);
+        //_rangeParent.Fire(context);
     }
 
     private Vector2 GetPointerInput()

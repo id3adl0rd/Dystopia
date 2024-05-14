@@ -175,10 +175,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 135271127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e677d85c1b64806f3929253dd9d052cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b14208c653587843b39e6e6cc9142be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 1263184851}
+  _settings: {fileID: 1595294289}
   _subMenu: {fileID: 1719493602}
 --- !u!114 &135271130
 MonoBehaviour:
@@ -1714,10 +1714,10 @@ AudioSource:
   m_GameObject: {fileID: 1176238100}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 6127209657890857619, guid: b1e508cb755ac02b7933feece100dd1a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 238085afbc9614df49d60aad8277a940, type: 3}
+  OutputAudioMixerGroup: {fileID: 6127209657890857619, guid: f5ed60b113496bd43b7d4e25cb5d9400, type: 2}
+  m_audioClip: {fileID: 8300000, guid: ebec8a24a6aa6114b85b6a4c27dd1df0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.116
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1852,11 +1852,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263184851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3baf053e913d0f10da0dd7990860924c, type: 3}
+  m_Script: {fileID: 11500000, guid: 661ef6c9afafa7c409b26d5d6d4e769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: b1e508cb755ac02b7933feece100dd1a, type: 2}
+  _mixer: {fileID: 24100000, guid: f5ed60b113496bd43b7d4e25cb5d9400, type: 2}
   _musicSlider: {fileID: 1340666556}
+  _soundSlider: {fileID: 1017039522}
   _subMenu: {fileID: 1719493602}
 --- !u!1 &1340666554
 GameObject:

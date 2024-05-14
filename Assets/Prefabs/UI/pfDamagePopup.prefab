@@ -166,12 +166,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 7285126965365890793}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 7285126965365890793}
+  m_maskType: 0
 --- !u!114 &2110294751882048934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +181,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4976351704764912718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84982ab5d3ae952698ded8007111646, type: 3}
+  m_Script: {fileID: 11500000, guid: 19980a876b807734fa798b28ad25bbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

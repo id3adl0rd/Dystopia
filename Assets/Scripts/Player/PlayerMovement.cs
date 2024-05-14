@@ -131,8 +131,8 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>().normalized;
-        
-        DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
+
+        // DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
     }
 
     //OnFire => Click

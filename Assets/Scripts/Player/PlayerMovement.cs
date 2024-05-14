@@ -148,6 +148,15 @@ public class PlayerMovement : MonoBehaviour
             interact.OnClick(_player, rayHit.collider.gameObject);
     }
 
+    public void OnPause()
+    {
+        if (PauseMenu.Instance.isPaused == true)
+            PauseMenu.Instance.ResumeGame();
+        else
+            PauseMenu.Instance.PauseGame();
+        
+    }
+
     public void OnSprint(InputAction.CallbackContext context)
     {
         if (context.performed)

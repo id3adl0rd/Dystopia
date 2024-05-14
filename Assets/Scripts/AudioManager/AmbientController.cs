@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AmbientController : MonoBehaviour
 {
     private static AudioSource _dynamic;
     private static AudioSource _ambient;
+
+    [SerializeField] private AudioMixerGroup _mixer;
     
     [SerializeField] private AudioClip[] _ambientClips;
     [SerializeField] private AudioClip[] _dynamicAmbientClips;
@@ -31,7 +34,10 @@ public class AmbientController : MonoBehaviour
     private void Start()
     {
         _dynamic = instance.gameObject.AddComponent<AudioSource>();
+        _dynamic.outputAudioMixerGroup = _mixer;
         _ambient = instance.gameObject.AddComponent<AudioSource>();
+        _ambient.outputAudioMixerGroup = _mixer;
+
 
         ChangeAmbient(_ambientClips[Random.Range(0, _ambientClips.Length)]);
     }

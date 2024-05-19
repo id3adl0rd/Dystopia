@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public class PlayerHealthController : AbstractHealthController, IDamageable
 {
     public UnityEvent OnDied, OnDamaged, OnHealthChanged;
-    
+
+    private int exp = 100;
     public void TakeDamage(float damageAmount, Vector2 knockback)
     {
         if (_currentHealth == 0)
@@ -22,7 +23,10 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
             _currentHealth = 0;
 
         if (_currentHealth == 0)
+        {
             OnDied.Invoke();
+            LevelManager.instance.AddExperience(exp);
+        }
         else
             OnDamaged.Invoke();
     }

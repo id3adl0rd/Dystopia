@@ -43,8 +43,6 @@ ExportedObj/
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
-*.meta
-*.cs.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
@@ -52,6 +50,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+Logs/
+*.blob
 
 # End of https://www.gitignore.io/api/unity
 Logs/

@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelManager.instance.OnExperienceChange += HandleExperienceChange;
+        //LevelManager.instance.OnExperienceChange += HandleExperienceChange;
     }
     
     private void OnDisable()

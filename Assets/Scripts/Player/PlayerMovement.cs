@@ -76,8 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance()._dialogueIsPlaying)
-            return;
+        //if (DialogueManager.GetInstance()._dialogueIsPlaying)
+        //    return;
         
         SetPlayerVelocity();
         //RotateInDirectionOfInput();

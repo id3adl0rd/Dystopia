@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void UpdateTargetDirection()
     {
-        HandleRandomDirectionChange();
+        //HandleRandomDirectionChange();
         HandlePlayerTargeting();
     }
 

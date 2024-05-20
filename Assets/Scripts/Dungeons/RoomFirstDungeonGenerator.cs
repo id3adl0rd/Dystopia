@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Dungeons.Params.DungeonObject;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -54,7 +55,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     }
 
     [SerializeField] private GameObject _playerObject;
-    [SerializeField] private GameObject[] _objects;
+    [SerializeField] private DungeonObjectSO[] _objects;
     
     private void PopulateDungeon(List<BoundsInt> roomsList, List<Vector2Int> roomCenters)
     {
@@ -74,12 +75,15 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             
             foreach (var position in roomsList)
             {
-                Debug.Log("try to spawn " + (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) &&
-                                             position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset)));
                 if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) &&
                     position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset))
                 {
-                    Instantiate(_objects[Random.Range(0, _objects.Length)], new Vector2(position.x, position.y), Quaternion.identity);
+                    var currentPrefab = _objects[Random.Range(0, _objects.Length)];
+                    
+                    if (currentPrefab._chance <= Random.Range(0, 100))
+                    {
+                        Instantiate(currentPrefab._gameObject, new Vector2(position.x, position.y), Quaternion.identity);
+                    }
                 }
             }
         }
@@ -99,9 +103,14 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) && position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset))
                 {
                     floor.Add(position);
+
+                    if (i == 0) continue;
                     
-                    if (i != 0 && Random.Range(0, 100) < 10) 
-                        Instantiate(_objects[Random.Range(0, _objects.Length)], new Vector2(position.x, position.y), Quaternion.identity);
+                    var currentPrefab = _objects[Random.Range(0, _objects.Length)];
+                    if (currentPrefab._chance >= Random.Range(0, 100))
+                    {
+                        Instantiate(currentPrefab._gameObject, new Vector2(position.x, position.y), Quaternion.identity);
+                    } 
                 }
             }
         }

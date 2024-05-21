@@ -1,3 +1,4 @@
+using Cinemachine;
 using Inventory;
 using UnityEngine;
 
@@ -13,8 +14,10 @@ public class Player : MonoBehaviour
     public WeaponContoller _weaponContoller { get; private set; }
     public NotifyController _notifyController { get; private set; }
     public LevelController _levelController { get; private set; }
+    public ShakeCameraController _shakeCameraController { get; private set; }
     
     public Camera _camera { get; private set; }
+    private CinemachineVirtualCamera _virtualCamera;
     
     private void Awake()
     {
@@ -28,18 +31,13 @@ public class Player : MonoBehaviour
         _weaponContoller = GetComponent<WeaponContoller>();
         _notifyController = GetComponent<NotifyController>();
         _levelController = GetComponent<LevelController>();
+        _shakeCameraController = GetComponent<ShakeCameraController>();
         
         _camera = Camera.main;
-    }
+        _virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        _virtualCamera.Follow = gameObject.transform;
 
-    private void OnEnable()
-    {
-        //LevelManager.instance.OnExperienceChange += HandleExperienceChange;
-    }
-    
-    private void OnDisable()
-    {
-        LevelManager.instance.OnExperienceChange -= HandleExperienceChange;
+        _shakeCameraController._vcam = _virtualCamera;
     }
 
     private void HandleExperienceChange(int newExp)

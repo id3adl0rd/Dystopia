@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Scenes/Dungeon");
+        SceneManager.LoadSceneAsync("Scenes/Hub");
     }
 
     public void ContinueGame()

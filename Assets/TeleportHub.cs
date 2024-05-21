@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TeleportDungeon : MonoBehaviour
+public class TeleportHub : MonoBehaviour
 {
     private void Awake()
     {
@@ -14,6 +14,6 @@ public class TeleportDungeon : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
-            SceneManager.LoadSceneAsync("Scenes/Dungeon");
+            SceneManager.LoadSceneAsync("Scenes/Hub");
     }
 }

@@ -83,7 +83,7 @@ public class WeaponParent : MonoBehaviour
     {
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
         {
-            if (collider.name == "Player")
+            if (collider.tag == "Player")
                 continue;
             
             MakeHit(collider);
@@ -97,9 +97,10 @@ public class WeaponParent : MonoBehaviour
 
         Vector2 direction = (collider.transform.position - transform.position).normalized;
         
+        Debug.Log(collider.name);
         var healthController = collider.gameObject.GetComponent<NPCHealthController>();
         healthController.TakeDamage(dmg, direction);
-
+        
         DamagePopup.Create(collider.gameObject.transform.position, dmg, isCriticalHit);
 
         /*

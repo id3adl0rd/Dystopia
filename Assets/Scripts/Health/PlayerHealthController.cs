@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class PlayerHealthController : AbstractHealthController, IDamageable
 {
     public UnityEvent OnDied, OnDamaged, OnHealthChanged;
-
+    
     public void TakeDamage(float damageAmount, Vector2 knockback)
     {
         if (_currentHealth == 0)

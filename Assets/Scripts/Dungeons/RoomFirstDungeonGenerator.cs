@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using Dungeons.Params.DungeonObject;
+using Inventory;
+using Inventory.Model;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,6 +25,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField] private Camera _miniMap;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _exitPrefab;
+    [SerializeField] private InventorySO _invUI;
 
     protected override void RunProceduralGeneration()
     {
@@ -73,6 +76,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         
         _camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
         _miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+
+        //_playerInstatiated.GetComponent<InventoryController>()._inventoryUI = _invUI;
 
         _virtualCamera.Follow = _playerInstatiated.transform;
 

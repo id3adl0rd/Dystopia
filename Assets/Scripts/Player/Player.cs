@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+    
     public PlayerHealthController _playerHealthController { get; private set; }
     public PlayerMovement _playerMovement { get; private set; }
     public InventoryController _inventoryController { get; private set; }
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     public NotifyController _notifyController { get; private set; }
     public LevelController _levelController { get; private set; }
     public ShakeCameraController _shakeCameraController { get; private set; }
+    public ClassController _classController { get; private set; }
     
     public Camera _camera { get; private set; }
     private CinemachineVirtualCamera _virtualCamera;
@@ -32,12 +35,14 @@ public class Player : MonoBehaviour
         _notifyController = GetComponent<NotifyController>();
         _levelController = GetComponent<LevelController>();
         _shakeCameraController = GetComponent<ShakeCameraController>();
+        _classController = GetComponent<ClassController>();
         
         _camera = Camera.main;
         _virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         _virtualCamera.Follow = gameObject.transform;
 
         _shakeCameraController._vcam = _virtualCamera;
+        instance = this;
     }
 
     private void HandleExperienceChange(int newExp)

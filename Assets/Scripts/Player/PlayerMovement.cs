@@ -7,6 +7,9 @@ using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int WALK_SPEED = 4;
+    private const int SPRINT_SPEED = 7;
+    
     [SerializeField]
     private ParticleSystem _dust;
     
@@ -15,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _sprintSpeed;
 
+    public void SetSprintSpeed(float boost)
+    {
+        _sprintSpeed = _sprintSpeed * boost;
+    }
+    
+    public void SetWalkSpeed(float boost)
+    {
+        _walkSpeed = _walkSpeed * boost;
+    }
+    
     private float _moveSpeed;
     public bool isSprinting { get; private set; }
 

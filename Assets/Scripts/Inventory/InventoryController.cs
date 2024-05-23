@@ -9,7 +9,7 @@ namespace Inventory
 {
     public class InventoryController : MonoBehaviour
     {
-        [SerializeField] private InventoryPage _inventoryUI;
+        [SerializeField] public InventoryPage _inventoryUI;
 
         [SerializeField] public InventorySO _inventoryData;
 
@@ -129,6 +129,22 @@ namespace Inventory
         }
 
         public void AddItem(Item item, int quantity = 0, List<ItemParameter> itemState = null)
+        {
+            if (quantity == 0)
+                quantity = item._quantity;
+            
+            int reminder = _inventoryData.AddItem(item._inventoryItem, quantity, itemState);
+            if (reminder == 0)
+            {
+                item.DestroyItem();
+            }
+            else
+            {
+                item._quantity = reminder;
+            }
+        }
+        
+        public void AddItemAlternative(Item item, int quantity = 0, List<ItemParameter> itemState = null)
         {
             if (quantity == 0)
                 quantity = item._quantity;

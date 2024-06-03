@@ -7,6 +7,9 @@ using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int WALK_SPEED = 4;
+    private const int SPRINT_SPEED = 7;
+    
     [SerializeField]
     private ParticleSystem _dust;
     
@@ -15,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _sprintSpeed;
 
+    public void SetSprintSpeed(float boost)
+    {
+        _sprintSpeed = _sprintSpeed * boost;
+    }
+    
+    public void SetWalkSpeed(float boost)
+    {
+        _walkSpeed = _walkSpeed * boost;
+    }
+    
     private float _moveSpeed;
     public bool isSprinting { get; private set; }
 
@@ -29,7 +42,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator _playerAnimator;
 
     private WeaponParent _weaponParent;
-    private RangeParent _rangeParent;
+    private RangeParent _rangeParent;    
+    
+    [SerializeField] private GameObject _weaponParentObj;
+    [SerializeField] private GameObject _rangeParentObj;
 
     public PlayerInputControl _playerInput { get; private set; }
 
@@ -70,14 +86,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _weaponParent.PointerPosition = GetPointerInput();
-        _rangeParent.PointerPosition = GetPointerInput();
+        if (_weaponParentObj.activeSelf)
+        {
+            _weaponParent.PointerPosition = GetPointerInput();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.PointerPosition = GetPointerInput();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance()._dialogueIsPlaying)
-            return;
+        //if (DialogueManager.GetInstance()._dialogueIsPlaying)
+        //    return;
         
         SetPlayerVelocity();
         //RotateInDirectionOfInput();
@@ -131,8 +154,6 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>().normalized;
-        
-        DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
     }
 
     //OnFire => Click
@@ -198,9 +219,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (_weaponParent != null)
+        if (_weaponParentObj.activeSelf)
         {
             _weaponParent.Attack();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.Fire(context);
         }
 
         //_rangeParent.Fire(context);

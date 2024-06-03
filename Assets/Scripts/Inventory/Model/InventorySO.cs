@@ -23,6 +23,30 @@ namespace Inventory.Model
                 _inventoryItems.Add(InventoryItemStruct.GetEmptyItem());
             }
         }
+        
+        public int AddItemAlt(ItemSO item, int quantity, List<ItemParameter> itemState = null)
+        {
+            if (item.IsStackable == false)
+            {
+                for (int i = 0; i < _inventoryItems.Count; i++)
+                {
+                    if (IsInventoryFull())
+                        return quantity;
+
+                    while (quantity > 0 && IsInventoryFull() == false)
+                    {
+                        quantity -= AddItemToFirstFreeSlot(item, 1, itemState);
+                    }
+                    OnItemSwapped();
+                    return quantity;
+                }   
+            }
+
+            quantity = AddStackableItem(item, quantity);
+            OnItemSwapped();
+
+            return quantity;
+        }
 
         public int AddItem(ItemSO item, int quantity, List<ItemParameter> itemState = null)
         {

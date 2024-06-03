@@ -249,6 +249,9 @@ GameObject:
   - component: {fileID: 8271410052554059874}
   - component: {fileID: 218566259460198031}
   - component: {fileID: 7099238580733645555}
+  - component: {fileID: 4729792116515702449}
+  - component: {fileID: 7369692274402740907}
+  - component: {fileID: 3021830876216645821}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -459,18 +462,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3540595168197941533}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: 653e3879-ff70-4b87-94f7-ec1467e02a97
     m_ActionName: Player/Interact[/Keyboard/e]
   - m_PersistentCalls:
@@ -517,6 +508,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: edf02fce-e83c-4ddb-8fdd-beec158d5391
     m_ActionName: Player/Map[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3540595168197941533}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 99ec45bd-6424-4917-869d-9ae0c5f643e8
+    m_ActionName: Player/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -653,6 +660,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4534290224497010981}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnDead
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -861,6 +880,8 @@ MonoBehaviour:
   _walkSpeed: 4
   _sprintSpeed: 7
   _rotationSpeed: 250
+  _weaponParentObj: {fileID: 14672966183798369}
+  _rangeParentObj: {fileID: 3397419081873308259}
 --- !u!114 &6347425360395515314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1051,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 0}
+--- !u!114 &4729792116515702449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656119182535806620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea2957853ea369a0a24338e4cacda8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _class: {fileID: 11400000, guid: 5fe2f8d16b9f84df09d83e136ce05c77, type: 2}
+  _weaponMelee: {fileID: 14672966183798369}
+  _weaponRange: {fileID: 3397419081873308259}
+--- !u!114 &7369692274402740907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656119182535806620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677f2b8a6ceb4337b9d9110123022804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _exp: 0
+--- !u!114 &3021830876216645821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656119182535806620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3daea1cc2f3d5b89901be3fbb3452bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _money: 100
 --- !u!1 &5307880367956962714
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,7 +6363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &45378528081499926
 Transform:
   m_ObjectHideFlags: 0

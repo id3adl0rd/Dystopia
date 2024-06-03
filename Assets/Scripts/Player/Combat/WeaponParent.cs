@@ -76,14 +76,13 @@ public class WeaponParent : MonoBehaviour
         Gizmos.color = Color.blue;
         Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
         Gizmos.DrawWireSphere(position, radius);
-        //Gizmos.DrawCube(position, new Vector2(0.1f, 0.8f));
     }
 
     private void DetectColliders()
     {
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
         {
-            if (collider.name == "Player")
+            if (collider.tag == "Player")
                 continue;
             
             MakeHit(collider);
@@ -97,13 +96,10 @@ public class WeaponParent : MonoBehaviour
 
         Vector2 direction = (collider.transform.position - transform.position).normalized;
         
+        Debug.Log(collider.name);
         var healthController = collider.gameObject.GetComponent<NPCHealthController>();
         healthController.TakeDamage(dmg, direction);
-
+        
         DamagePopup.Create(collider.gameObject.transform.position, dmg, isCriticalHit);
-
-        /*
-        SoundManager.PlaySound(_attackSound);
-    */
     }
 }

@@ -6,7 +6,7 @@ public class EnemyMovementFollow : MonoBehaviour
 {
     [SerializeField] private float _speed = 1;
 
-    [SerializeField] private float _rotationSpeed = 100;
+    [SerializeField] private float _rotationSpeed = 0;
 
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _playerAwarenessController;
@@ -21,7 +21,7 @@ public class EnemyMovementFollow : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateTargetDirection();
-        RotateTowardsTarget();
+        //RotateTowardsTarget();
         SetVelocity();
     }
 

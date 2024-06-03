@@ -10,16 +10,21 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject _settings;
     [SerializeField] private GameObject _subMenu;
+    [SerializeField] private GameObject _classMenu;
     
     private void Awake()
     {
         _mainMenu = gameObject;
         _subMenu.SetActive(false);
+        _settings.SetActive(false);
+        _classMenu.SetActive(false);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Scenes/Dungeon");
+        _settings.SetActive(false);
+        _subMenu.SetActive(true);
+        _classMenu.SetActive(true);
     }
 
     public void ContinueGame()
@@ -29,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
+        _classMenu.SetActive(false);
         _subMenu.SetActive(true);
         _settings.SetActive(true);
     }

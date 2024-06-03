@@ -8,6 +8,8 @@ public class ClassController : MonoBehaviour
 {
     public static ClassController instance { get; private set; }
     [SerializeField] private ClassSO _class;
+    [SerializeField] private GameObject _weaponMelee;
+    [SerializeField] private GameObject _weaponRange;
 
     public void SetClass(ClassSO pl_class)
     {
@@ -17,9 +19,24 @@ public class ClassController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        
+        SetClass(StaticData.classSO);
+
+        if (_class.GetUID() == "bow")
+        {
+            _weaponMelee.SetActive(false);
+            _weaponRange.SetActive(true);
+        }
+        else
+        {
+            _weaponMelee.SetActive(true);
+            _weaponRange.SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
         Player.instance._playerHealthController.SetMaxHealth(math.round(Player.instance._playerHealthController.GetMaxHealth() *
-                                                              GetHPBoost()));
+                                                                        GetHPBoost()));
         Player.instance._playerHealthController.SetHealth(Player.instance._playerHealthController.GetMaxHealth());
         Player.instance._playerMovement.SetSprintSpeed(GetSpeedBoost());
         Player.instance._playerMovement.SetWalkSpeed(GetSpeedBoost());

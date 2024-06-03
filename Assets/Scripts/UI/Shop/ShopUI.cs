@@ -41,6 +41,10 @@ public class ShopUI : MonoBehaviour
     
     public void BuyItem(ItemSO _item)
     {
-        _inv._inventoryData.AddItemAlt(_item, 1);
+        if (MoneyController.instance.GetMoney() > 0)
+        {
+            _inv._inventoryData.AddItemAlt(_item, 1);
+            MoneyController.instance.RemoveMoney(10);
+        }
     }
 }

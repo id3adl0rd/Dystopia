@@ -1,6 +1,8 @@
+using System.Collections;
 using Cinemachine;
 using Inventory;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -21,10 +23,11 @@ public class Player : MonoBehaviour
     
     public Camera _camera { get; private set; }
     private CinemachineVirtualCamera _virtualCamera;
+
+    private GameObject _endUI;
     
     private void Awake()
     {
-        _playerHealthController = GetComponent<PlayerHealthController>();
         _playerMovement = GetComponent<PlayerMovement>();
         _inventoryController = GetComponent<InventoryController>();
         _ambientController = GetComponent<PlayerAmbientController>();
@@ -36,13 +39,17 @@ public class Player : MonoBehaviour
         _levelController = GetComponent<LevelController>();
         _shakeCameraController = GetComponent<ShakeCameraController>();
         _classController = GetComponent<ClassController>();
+        _playerHealthController = GetComponent<PlayerHealthController>();
         
+        instance = this;
         _camera = Camera.main;
         _virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         _virtualCamera.Follow = gameObject.transform;
 
+        _endUI = GameObject.Find("GameOver");
+        _endUI.SetActive(false);
+
         _shakeCameraController._vcam = _virtualCamera;
-        instance = this;
     }
 
     private void HandleExperienceChange(int newExp)
@@ -58,5 +65,17 @@ public class Player : MonoBehaviour
     private void LevelUp()
     {
         
+    }
+
+    public void OnDead()
+    {
+        StartCoroutine(EndGameCoroutine());
+    }
+    
+    private IEnumerator EndGameCoroutine()
+    {
+        _endUI.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadSceneAsync("Scenes/MainMenu");
     }
 }

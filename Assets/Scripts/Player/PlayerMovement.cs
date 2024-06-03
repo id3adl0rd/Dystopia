@@ -42,7 +42,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator _playerAnimator;
 
     private WeaponParent _weaponParent;
-    private RangeParent _rangeParent;
+    private RangeParent _rangeParent;    
+    
+    [SerializeField] private GameObject _weaponParentObj;
+    [SerializeField] private GameObject _rangeParentObj;
 
     public PlayerInputControl _playerInput { get; private set; }
 
@@ -83,8 +86,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _weaponParent.PointerPosition = GetPointerInput();
-        _rangeParent.PointerPosition = GetPointerInput();
+        if (_weaponParentObj.activeSelf)
+        {
+            _weaponParent.PointerPosition = GetPointerInput();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.PointerPosition = GetPointerInput();
+        }
     }
 
     private void FixedUpdate()
@@ -209,9 +219,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (_weaponParent != null)
+        if (_weaponParentObj.activeSelf)
         {
             _weaponParent.Attack();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.Fire(context);
         }
 
         //_rangeParent.Fire(context);

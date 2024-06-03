@@ -76,7 +76,6 @@ public class WeaponParent : MonoBehaviour
         Gizmos.color = Color.blue;
         Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
         Gizmos.DrawWireSphere(position, radius);
-        //Gizmos.DrawCube(position, new Vector2(0.1f, 0.8f));
     }
 
     private void DetectColliders()
@@ -102,9 +101,5 @@ public class WeaponParent : MonoBehaviour
         healthController.TakeDamage(dmg, direction);
         
         DamagePopup.Create(collider.gameObject.transform.position, dmg, isCriticalHit);
-
-        /*
-        SoundManager.PlaySound(_attackSound);
-    */
     }
 }

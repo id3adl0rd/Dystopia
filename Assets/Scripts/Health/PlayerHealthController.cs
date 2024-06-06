@@ -15,6 +15,7 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
         
         _currentHealth -= damageAmount;
         OnHealthChanged.Invoke();
+        GameObject.Find("Health Bar").GetComponent<HealthBarUI>().UpdateHealthBar();
         
         transform.position = new Vector2(transform.position.x + knockback.x, transform.position.y + knockback.y);
         
@@ -22,7 +23,9 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
             _currentHealth = 0;
 
         if (_currentHealth == 0)
+        {
             OnDied.Invoke();
+        }
         else
             OnDamaged.Invoke();
     }
@@ -34,6 +37,7 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
 
         _currentHealth += amountToAdd;
         OnHealthChanged.Invoke();
+        GameObject.Find("Health Bar").GetComponent<HealthBarUI>().UpdateHealthBar();
 
         if (_currentHealth > _maximumHealth)
             _currentHealth = _maximumHealth;

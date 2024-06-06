@@ -31,8 +31,6 @@ public static class WallGenerator
                     neighboursBinary += "0";
                 }
             }
-            
-            Debug.Log(position);
 
             tilemapVisualizer.PaintSingleCornerWall(position, neighboursBinary);
         }

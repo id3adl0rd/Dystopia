@@ -4,6 +4,11 @@ public class SmoothCamera : MonoBehaviour
 {
     [SerializeField] private float _followSpeed;
     [SerializeField] private Transform _target;
+
+    public void SetTarget(GameObject obj)
+    {
+        _target = obj.transform;
+    }
     
     private void FixedUpdate()
     {

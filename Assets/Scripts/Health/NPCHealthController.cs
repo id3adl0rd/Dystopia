@@ -39,9 +39,13 @@ public class NPCHealthController : AbstractHealthController, IDamageable
 
         if (_currentHealth < 0)
             _currentHealth = 0;
-
+        
         if (_currentHealth == 0)
+        {
             OnDied.Invoke();
+            LevelController.instance.AddExperience(100);
+            QuestController.instance.OnKillObj(gameObject.name);
+        }
         else
             OnDamaged.Invoke();
     }

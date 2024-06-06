@@ -13,8 +13,6 @@ public class PlayerAmbientController : MonoBehaviour
     {
         
         _ambientController = GameObject.Find("SoundManager").GetComponent<AmbientController>();
-        
-        //_ambientController = AmbientController.instance;
     }
 
     public void StartDynamic()

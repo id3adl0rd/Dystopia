@@ -7,6 +7,9 @@ using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int WALK_SPEED = 4;
+    private const int SPRINT_SPEED = 7;
+    
     [SerializeField]
     private ParticleSystem _dust;
     
@@ -15,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _sprintSpeed;
 
+    public void SetSprintSpeed(float boost)
+    {
+        _sprintSpeed = _sprintSpeed * boost;
+    }
+    
+    public void SetWalkSpeed(float boost)
+    {
+        _walkSpeed = _walkSpeed * boost;
+    }
+    
     private float _moveSpeed;
     public bool isSprinting { get; private set; }
 
@@ -29,13 +42,18 @@ public class PlayerMovement : MonoBehaviour
     private Animator _playerAnimator;
 
     private WeaponParent _weaponParent;
-    private RangeParent _rangeParent;
+    private RangeParent _rangeParent;    
+    
+    [SerializeField] private GameObject _weaponParentObj;
+    [SerializeField] private GameObject _rangeParentObj;
 
     public PlayerInputControl _playerInput { get; private set; }
 
     private Player _player;
 
     private bool IsDusting;
+
+    private GameObject _questprefab;
 
     private void Awake()
     {
@@ -45,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInputControl();
         _weaponParent = GetComponentInChildren<WeaponParent>();
         _rangeParent = GetComponentInChildren<RangeParent>();
+        _questprefab = GameObject.Find("Quest");
+        _questprefab.SetActive(false);
     }
 
     private void Start()
@@ -70,14 +90,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _weaponParent.PointerPosition = GetPointerInput();
-        _rangeParent.PointerPosition = GetPointerInput();
+        if (_weaponParentObj.activeSelf)
+        {
+            _weaponParent.PointerPosition = GetPointerInput();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.PointerPosition = GetPointerInput();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance()._dialogueIsPlaying)
-            return;
+        //if (DialogueManager.GetInstance()._dialogueIsPlaying)
+        //    return;
         
         SetPlayerVelocity();
         //RotateInDirectionOfInput();
@@ -131,11 +158,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>().normalized;
-        
-        DirtParticleSystemHandler.Instance.SpawnDirt(_movementInput + new Vector2(0, 3f), GetPointerInput());
     }
 
     //OnFire => Click
+    const float minDist = .9f;
     public void OnFire(InputAction.CallbackContext context)
     {
         if (!context.started) return;
@@ -146,6 +172,47 @@ public class PlayerMovement : MonoBehaviour
         IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
         if (interact != null)
             interact.OnClick(_player, rayHit.collider.gameObject);
+
+        if (rayHit.collider.name == "NPCShop")
+        {
+            float dist = Vector2.Distance(rayHit.collider.transform.position, gameObject.transform.position);
+        
+            if (minDist >= dist)
+            {
+                GameObject.Find("Shop").GetComponent<ShopUI>().ShowAll();
+            }
+        }        
+        
+        if (rayHit.collider.name == "NPC")
+        {
+            float dist = Vector2.Distance(rayHit.collider.transform.position, gameObject.transform.position);
+        
+            if (minDist >= dist)
+            {
+                Debug.Log("open");
+                rayHit.collider.GetComponentInChildren<DialogueTrigger>().EnterDialogue();
+            }
+        }
+    }
+
+    public void OnPause()
+    {
+        if (PauseMenu.Instance.isPaused == true)
+            PauseMenu.Instance.ResumeGame();
+        else
+            PauseMenu.Instance.PauseGame();
+        
+    }
+
+    public void OnQuest()
+    {
+        if (_questprefab.activeSelf == true)
+            _questprefab.SetActive(false);
+        else
+        {
+            _questprefab.SetActive(true);
+            QuestController.instance.SetQuestData();
+        }
     }
 
     public void OnSprint(InputAction.CallbackContext context)
@@ -189,9 +256,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (_weaponParent != null)
+        if (_weaponParentObj.activeSelf)
         {
             _weaponParent.Attack();
+        }
+        
+        if (_rangeParentObj.activeSelf)
+        {
+            _rangeParent.Fire(context);
         }
 
         //_rangeParent.Fire(context);

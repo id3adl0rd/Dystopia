@@ -1,4 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
+using Cinemachine;
+using Dungeons.Params.DungeonObject;
+using Inventory;
+using Inventory.Model;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,6 +20,12 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private int offset = 1;
     [SerializeField]
     private bool randomWalkRooms = false;
+
+    [SerializeField] private Camera _camera;
+    [SerializeField] private Camera _miniMap;
+    [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] private GameObject _exitPrefab;
+    [SerializeField] private InventorySO _invUI;
 
     protected override void RunProceduralGeneration()
     {
@@ -48,6 +59,53 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         
         tilemapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
+
+        PopulateDungeon(roomsList, roomCenters);
+    }
+
+    [SerializeField] private GameObject _playerObject;
+    [SerializeField] private DungeonObjectSO[] _objects;
+    
+    private void PopulateDungeon(List<BoundsInt> roomsList, List<Vector2Int> roomCenters)
+    {
+        var room = (Vector2Int)Vector3Int.RoundToInt(roomsList[0].center);
+        var _playerInstatiated = Instantiate(_playerObject, new Vector2(room.x, room.y), Quaternion.identity);
+        
+        var exitROom = (Vector2Int)Vector3Int.RoundToInt(roomsList[roomsList.Count - 1].center);
+        Instantiate(_exitPrefab, new Vector2(exitROom.x, exitROom.y), Quaternion.identity);
+        
+        _camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+        _miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+
+        //_playerInstatiated.GetComponent<InventoryController>()._inventoryUI = _invUI;
+
+        _virtualCamera.Follow = _playerInstatiated.transform;
+
+        foreach (var roomcool in roomsList)
+        {
+            if (roomcool.center == roomsList[0].center) continue;
+        }
+
+        for (int i = 0; i < roomsList.Count; i++)
+        {
+            if (i == 0) continue; 
+            
+            var roomBounds = roomsList[i];
+            
+            foreach (var position in roomsList)
+            {
+                if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) &&
+                    position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset))
+                {
+                    var currentPrefab = _objects[Random.Range(0, _objects.Length)];
+                    
+                    if (currentPrefab._chance <= Random.Range(0, 100))
+                    {
+                        Instantiate(currentPrefab._gameObject, new Vector2(position.x, position.y), Quaternion.identity);
+                    }
+                }
+            }
+        }
     }
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
@@ -64,6 +122,14 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) && position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset))
                 {
                     floor.Add(position);
+
+                    if (i == 0) continue;
+                    
+                    var currentPrefab = _objects[Random.Range(0, _objects.Length)];
+                    if (currentPrefab._chance >= Random.Range(0, 100))
+                    {
+                        Instantiate(currentPrefab._gameObject, new Vector2(position.x - 0.48f, position.y - 0.48f), Quaternion.identity);
+                    } 
                 }
             }
         }
@@ -156,6 +222,12 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 {
                     Vector2Int position = (Vector2Int)room.min + new Vector2Int(col, row);
                     floor.Add(position);
+                    
+                    var currentPrefab = _objects[Random.Range(0, _objects.Length)];
+                    if (currentPrefab._chance >= Random.Range(0, 100))
+                    {
+                        Instantiate(currentPrefab._gameObject, new Vector2(position.x, position.y), Quaternion.identity);
+                    } 
                 }
             }
         }

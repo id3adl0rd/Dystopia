@@ -18,10 +18,31 @@ public abstract class AbstractHealthController : MonoBehaviour
     }
 
     public bool IsInvincible { get; set; }
+
+    public void SetHealth(float health)
+    {
+        _currentHealth = health;
+    }
+    
+    public void SetMaxHealth(float health)
+    {
+        _maximumHealth = health;
+    }
+
+    public float GetHealth()
+    {
+        return _currentHealth;
+    }
+    
+    public float GetMaxHealth()
+    {
+        return _maximumHealth;
+    }
     
     private void Awake()
     {
         _player = GetComponent<Player>();
+
         _currentHealth = _maximumHealth;
     }
 }

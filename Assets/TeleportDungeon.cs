@@ -14,6 +14,9 @@ public class TeleportDungeon : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
+        {
             SceneManager.LoadSceneAsync("Scenes/Dungeon");
+            StaticData.isQuestFinished = QuestController.instance.isFinished;
+        }
     }
 }

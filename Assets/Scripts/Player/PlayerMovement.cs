@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsDusting;
 
+    private GameObject _questprefab;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -61,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInputControl();
         _weaponParent = GetComponentInChildren<WeaponParent>();
         _rangeParent = GetComponentInChildren<RangeParent>();
+        _questprefab = GameObject.Find("Quest");
+        _questprefab.SetActive(false);
     }
 
     private void Start()
@@ -157,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //OnFire => Click
+    const float minDist = .9f;
     public void OnFire(InputAction.CallbackContext context)
     {
         if (!context.started) return;
@@ -167,6 +172,27 @@ public class PlayerMovement : MonoBehaviour
         IInteract interact = rayHit.collider.GetComponent<IInteract>() as IInteract;
         if (interact != null)
             interact.OnClick(_player, rayHit.collider.gameObject);
+
+        if (rayHit.collider.name == "NPCShop")
+        {
+            float dist = Vector2.Distance(rayHit.collider.transform.position, gameObject.transform.position);
+        
+            if (minDist >= dist)
+            {
+                GameObject.Find("Shop").GetComponent<ShopUI>().ShowAll();
+            }
+        }        
+        
+        if (rayHit.collider.name == "NPC")
+        {
+            float dist = Vector2.Distance(rayHit.collider.transform.position, gameObject.transform.position);
+        
+            if (minDist >= dist)
+            {
+                Debug.Log("open");
+                rayHit.collider.GetComponentInChildren<DialogueTrigger>().EnterDialogue();
+            }
+        }
     }
 
     public void OnPause()
@@ -176,6 +202,17 @@ public class PlayerMovement : MonoBehaviour
         else
             PauseMenu.Instance.PauseGame();
         
+    }
+
+    public void OnQuest()
+    {
+        if (_questprefab.activeSelf == true)
+            _questprefab.SetActive(false);
+        else
+        {
+            _questprefab.SetActive(true);
+            QuestController.instance.SetQuestData();
+        }
     }
 
     public void OnSprint(InputAction.CallbackContext context)

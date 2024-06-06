@@ -16017,7 +16017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: b1e508cb755ac02b7933feece100dd1a, type: 2}
   _musicSlider: {fileID: 1340666556}
-  _soundSlider: {fileID: 0}
+  _soundSlider: {fileID: 1017039522}
   _subMenu: {fileID: 1719493602}
 --- !u!1 &1279620791
 GameObject:

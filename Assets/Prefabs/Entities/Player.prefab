@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 4729792116515702449}
   - component: {fileID: 7369692274402740907}
   - component: {fileID: 3021830876216645821}
+  - component: {fileID: 3525207909732879073}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -269,7 +270,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.93420786, y: -0.03616667, z: 0.07562758}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6224643746709830227}
@@ -524,11 +525,27 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 99ec45bd-6424-4917-869d-9ae0c5f643e8
     m_ActionName: Player/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3540595168197941533}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e66b9866-2219-46cc-b8c9-a963301b4062
+    m_ActionName: Player/Quest[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 3240804475966707501, guid: d5d2fdfaf38946bd886df491d60fdc7a, type: 3}
+  m_Camera: {fileID: 0}
 --- !u!114 &3019993363858822546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d129dae4aab29a17cb5cd561c8c1e200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _invincibilityDuration: 2.5
+  _invincibilityDuration: 1
 --- !u!212 &1057120573697588746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -734,7 +751,7 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4656119182535806620}
         m_TargetAssemblyTypeName: HealthBarUI, Assembly-CSharp
         m_MethodName: UpdateHealthBar
         m_Mode: 2
@@ -1093,6 +1110,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _money: 100
+--- !u!114 &3525207909732879073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656119182535806620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11564f8510fd4961847dd43353ec9712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quest: {fileID: 11400000, guid: 2f2d4421917864213b83500714f2590a, type: 2}
+  questCount: 0
+  isFinished: 0
 --- !u!1 &5307880367956962714
 GameObject:
   m_ObjectHideFlags: 0

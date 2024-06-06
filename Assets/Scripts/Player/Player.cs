@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Cinemachine;
 using Inventory;
@@ -43,12 +44,21 @@ public class Player : MonoBehaviour
         
         instance = this;
         _camera = Camera.main;
+        //NotifyController.instance._gameObject = GameObject.Find("PopupWindow1");
+        
+        GameObject.Find("Health Bar").GetComponent<HealthBarUI>().healthController = _playerHealthController;
+
+        if (GameObject.Find("GameOver"))
+        {
+            _endUI = GameObject.Find("GameOver");
+            _endUI.SetActive(false);   
+        }
+    }
+
+    private void Start()
+    {
         _virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         _virtualCamera.Follow = gameObject.transform;
-
-        _endUI = GameObject.Find("GameOver");
-        _endUI.SetActive(false);
-
         _shakeCameraController._vcam = _virtualCamera;
     }
 

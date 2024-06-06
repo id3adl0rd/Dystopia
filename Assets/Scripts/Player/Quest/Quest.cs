@@ -1,24 +1,49 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class Quest : MonoBehaviour
+[CreateAssetMenu]
+public class Quest : ScriptableObject
 {
-    public List<Goal> Goals { get; set; } = new List<Goal>();
-    public string QuestName { get; set; }
-    public string Description { get; set; }
-    public int ExperienceReward { get; set; }
-    public bool Completed { get; set; }
+    [SerializeField] private string name;
+    [SerializeField] private string description;
+    [SerializeField] private string uid;
+    public bool isKillQuest;
+    [SerializeField] private uint count;
+    [SerializeField] private string killObject;
 
-    public void CheckGoals()
+    public string GetName()
     {
-        Completed = Goals.All(g => g.Completed); 
-        
-        if (Completed) GiveReward();
+        return name;
+    }
+    
+    public string GetDescription()
+    {
+        return string.Format("{0} - {1} из {2}", name, QuestController.instance.questCount, count);
     }
 
-    private void GiveReward()
+    public string GetUID()
     {
-        LevelController.instance.AddExperience(ExperienceReward);
+        return uid;
+    }
+
+    public string GetObject()
+    {
+        return killObject;
+    }
+    
+    public uint GetCount()
+    {
+        return count;
+    }
+
+    public bool IsFinished()
+    {
+        if (QuestController.instance.questCount >= count)
+        {
+            //NotifyController.instance.AddToQueue("Квест завершен!", 0f);
+            QuestController.instance.isFinished = true;
+            return true;
+        }
+
+        return false;
     }
 }

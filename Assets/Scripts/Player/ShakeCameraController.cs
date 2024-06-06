@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShakeCameraController : MonoBehaviour
 {
-    [HideInInspector] public CinemachineVirtualCamera _vcam;
+    public CinemachineVirtualCamera _vcam;
     private CinemachineBasicMultiChannelPerlin _noisePerlin;
     [SerializeField] private float _shakeTime = 0.1f;
     private IEnumerator _coroutine;

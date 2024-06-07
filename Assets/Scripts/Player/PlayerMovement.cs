@@ -126,18 +126,15 @@ public class PlayerMovement : MonoBehaviour
         /*
         Debug.Log(_smoothedMovementInput);
         */
-        
+
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
 
-            if (!IsDusting)
-            {
-                float angle = Mathf.Atan2(_smoothedMovementInput.y, _smoothedMovementInput.x) * Mathf.Rad2Deg;
-                _dust.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
-                _dust.Play();
-                IsDusting = true;
-            }
+            float angle = Mathf.Atan2(_smoothedMovementInput.y, _smoothedMovementInput.x) * Mathf.Rad2Deg;
+            _dust.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+            _dust.Play();
+            IsDusting = true;
         }
         else
         {

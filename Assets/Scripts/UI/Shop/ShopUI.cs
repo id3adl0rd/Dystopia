@@ -12,10 +12,15 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private InventoryController _inv;
     private Transform container;
     [SerializeField] private Transform shopItemTemplate;
+    [SerializeField] private Transform closeButton;
+    //[SerializeField] private GameObject containerObj;
 
     private void Awake()
     {
         container = transform.Find("container");
+        
+        CreateItemButton(_item.ItemImage, _item.Name, 10, 0);
+        container.gameObject.SetActive(false);
         //shopItemTemplate = container.Find("shopItemTemplate");
         //shopItemTemplate.gameObject.SetActive(false);
     }
@@ -27,7 +32,9 @@ public class ShopUI : MonoBehaviour
 
     public void ShowAll()
     {
-        CreateItemButton(_item.ItemImage, _item.Name, 10, 0);
+        container.gameObject.SetActive(true);
+        RectTransform buttonItemRectTransform = closeButton.GetComponent<RectTransform>();
+        buttonItemRectTransform.anchoredPosition = new Vector2(0, -80 * 2);
     }
 
     private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
@@ -48,5 +55,10 @@ public class ShopUI : MonoBehaviour
             _inv._inventoryData.AddItemAlt(_item, 1);
             MoneyController.instance.RemoveMoney(10);
         }
+    }
+
+    public void Close()
+    {
+        container.gameObject.SetActive(false);
     }
 }

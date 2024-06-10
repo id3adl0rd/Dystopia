@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         //NotifyController.instance._gameObject = GameObject.Find("PopupWindow1");
         
         GameObject.Find("Health Bar").GetComponent<HealthBarUI>().healthController = _playerHealthController;
+        GameObject.Find("Stamina Bar").GetComponent<StaminaBarUI>()._staminaController = _staminaController;
 
         if (GameObject.Find("GameOver"))
         {

@@ -48,6 +48,7 @@ public class StaminaController : MonoBehaviour
         }
 
         _currentStamina -= amount;
+        GameObject.Find("Stamina Bar").GetComponent<StaminaBarUI>().UpdateStaminaBar();
     }
 
     public void RestoreStamina(float amount = 1f)
@@ -59,6 +60,7 @@ public class StaminaController : MonoBehaviour
         }
             
         _currentStamina += amount;
+        GameObject.Find("Stamina Bar").GetComponent<StaminaBarUI>().UpdateStaminaBar();
     }
 
     private IEnumerator StaminaRegen()

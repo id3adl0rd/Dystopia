@@ -17,6 +17,7 @@ public class TeleportDungeon : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("Scenes/Dungeon");
             StaticData.isQuestFinished = QuestController.instance.isFinished;
+            StaticData.elimination = QuestController.instance.questCount;
         }
     }
 }

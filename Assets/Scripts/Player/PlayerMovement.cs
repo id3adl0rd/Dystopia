@@ -39,13 +39,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
 
-    private Animator _playerAnimator;
-
     private WeaponParent _weaponParent;
     private RangeParent _rangeParent;    
     
     [SerializeField] private GameObject _weaponParentObj;
     [SerializeField] private GameObject _rangeParentObj;
+
+    [SerializeField] private Animator _playerAnimator;
 
     public PlayerInputControl _playerInput { get; private set; }
 
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _playerAnimator = GetComponent<Animator>();
+        //_playerAnimator = GetComponent<Animator>();
         _player = GetComponent<Player>();
         _playerInput = new PlayerInputControl();
         _weaponParent = GetComponentInChildren<WeaponParent>();
@@ -126,16 +126,15 @@ public class PlayerMovement : MonoBehaviour
         /*
         Debug.Log(_smoothedMovementInput);
         */
-        
+
         if (_smoothedMovementInput != Vector2.zero)
         {
             _playerAnimator.SetBool("isMoving", true);
 
-            if (!IsDusting)
-            {
-                _dust.Play();
-                IsDusting = true;
-            }
+            float angle = Mathf.Atan2(_smoothedMovementInput.y, _smoothedMovementInput.x) * Mathf.Rad2Deg;
+            _dust.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+            _dust.Play();
+            IsDusting = true;
         }
         else
         {

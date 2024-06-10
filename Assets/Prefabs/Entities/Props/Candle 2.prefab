@@ -4842,7 +4842,7 @@ PrefabInstance:
     - target: {fileID: 2667012948326159272, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5860325458425312261, guid: 2c8226082c87fb35b9585164d1ff6670, type: 3}
+      objectReference: {fileID: 1817461492, guid: ea4456566751272468870d24a96b5014, type: 3}
     - target: {fileID: 2667012948326159272, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -4857,11 +4857,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6731144394885941383, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 6731144394885941383, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731144394885941383, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6731144394885941383, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4909,7 +4913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8236933534606853528, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_Name
-      value: Candle
+      value: Candle 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

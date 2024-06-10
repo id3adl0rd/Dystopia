@@ -6,11 +6,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue UI")]
     [SerializeField] private GameObject _dialoguePanel;
+    [SerializeField] private GameObject _choicePanel;
     [SerializeField] private TextMeshProUGUI _dialogueText;
 
     [SerializeField] private GameObject[] _choices;
@@ -20,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     public bool _dialogueIsPlaying { get; private set; }
     
     private static DialogueManager instance;
+
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -63,14 +67,55 @@ public class DialogueManager : MonoBehaviour
         _currentStory = new Story(inkJSON.text);
         _dialogueIsPlaying = true;
         _dialoguePanel.SetActive(true);
+        _choicePanel.SetActive(true);
+        _currentStory.BindExternalFunction("startQuest", (string value) =>
+        {
+            if (QuestController.instance.GetQuest() != null)
+            {
+                return "У тебя уже есть задание. Чего тебе еще надо?";
+            }
+            
+            //QuestController.instance.SetQuest(GameAssets.i.Quests.);
+            NotifyController.instance.AddToQueue("Новое задание!", 0f);
+            
+            return "Держи свое задание";
+        });
+        
+        _currentStory.BindExternalFunction("closeDialogue", () =>
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+            
+            _coroutine = StartCoroutine(ExitDialogue());
+        });
 
         ContinueStory();
-        StartCoroutine(SelectFirstChoice());
+
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
+        
+        _coroutine = StartCoroutine(SelectFirstChoice());
     }
 
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
+        
+        _dialogueIsPlaying = false;
+        _dialoguePanel.SetActive(false);
+        _dialogueText.text = "";
+    }
+    
+    private IEnumerator ExitDialogue()
+    {
+        _choicePanel.SetActive(false);
+        yield return new WaitForSeconds(5f);
         
         _dialogueIsPlaying = false;
         _dialoguePanel.SetActive(false);
@@ -87,7 +132,13 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-           StartCoroutine(ExitDialogueMode());
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+            
+            _coroutine =  StartCoroutine(ExitDialogueMode());
         }
     }
 
@@ -119,14 +170,25 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator SelectFirstChoice()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(_choices[0].gameObject);
+        //EventSystem.current.SetSelectedGameObject(_choices[0].gameObject);
     }
 
     public void MakeChoice(int choiceIndex)
     {
         _currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueStory();
+        
+        if (_currentStory.currentChoices.Count == 0)
+        {
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+            
+            _coroutine = StartCoroutine(ExitDialogue());
+        }
     }
 }

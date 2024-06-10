@@ -20,7 +20,7 @@ public class ClassController : MonoBehaviour
     {
         instance = this;
         SetClass(StaticData.classSO);
-
+        
         if (_class.GetUID() == "bow")
         {
             _weaponMelee.SetActive(false);

@@ -59,6 +59,8 @@ public class ShopUI : MonoBehaviour
 
     public void Close()
     {
+        if (container.gameObject.activeSelf == false) return;
+        
         container.gameObject.SetActive(false);
     }
 }

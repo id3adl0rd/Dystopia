@@ -157,6 +157,11 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>().normalized;
+
+        if (GameObject.Find("Shop"))
+        {
+            GameObject.Find("Shop").GetComponent<ShopUI>().Close();
+        }
     }
 
     //OnFire => Click
@@ -188,7 +193,6 @@ public class PlayerMovement : MonoBehaviour
         
             if (minDist >= dist)
             {
-                Debug.Log("open");
                 rayHit.collider.GetComponentInChildren<DialogueTrigger>().EnterDialogue();
             }
         }

@@ -4,6 +4,7 @@ using Cinemachine;
 using Dungeons.Params.DungeonObject;
 using Inventory;
 using Inventory.Model;
+using UI.Inventory;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,7 +26,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField] private Camera _miniMap;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _exitPrefab;
-    [SerializeField] private InventorySO _invUI;
+    [SerializeField] private GameObject _invUI;
 
     protected override void RunProceduralGeneration()
     {
@@ -68,18 +69,18 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     
     private void PopulateDungeon(List<BoundsInt> roomsList, List<Vector2Int> roomCenters)
     {
-        var room = (Vector2Int)Vector3Int.RoundToInt(roomsList[0].center);
-        var _playerInstatiated = Instantiate(_playerObject, new Vector2(room.x, room.y), Quaternion.identity);
+        //var room = (Vector2Int)Vector3Int.RoundToInt(roomsList[0].center);
+        //var _playerInstatiated = Instantiate(_playerObject, new Vector2(room.x, room.y), Quaternion.identity);
         
         var exitROom = (Vector2Int)Vector3Int.RoundToInt(roomsList[roomsList.Count - 1].center);
         Instantiate(_exitPrefab, new Vector2(exitROom.x, exitROom.y), Quaternion.identity);
         
-        _camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
-        _miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+        //_camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+        //_miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
 
         //_playerInstatiated.GetComponent<InventoryController>()._inventoryUI = _invUI;
 
-        _virtualCamera.Follow = _playerInstatiated.transform;
+        //_virtualCamera.Follow = _playerInstatiated.transform;
 
         foreach (var roomcool in roomsList)
         {
@@ -110,6 +111,13 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
     {
+        var room = (Vector2Int)Vector3Int.RoundToInt(roomsList[0].center);
+        var _playerInstatiated = Instantiate(_playerObject, new Vector2(room.x, room.y), Quaternion.identity);
+        _camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+        _miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
+        _virtualCamera.Follow = _playerInstatiated.transform;
+        _playerInstatiated.GetComponent<InventoryController>()._inventoryUI = _invUI.GetComponentInChildren<InventoryPage>();
+        
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
         for (int i = 0; i < roomsList.Count; i++)
         {

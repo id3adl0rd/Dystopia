@@ -9537,6 +9537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameAssets
       objectReference: {fileID: 0}
+    - target: {fileID: 1821213755021954459, guid: ce3605159bbf99ff198a2a64817cbb6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3605035443644676324, guid: ce3605159bbf99ff198a2a64817cbb6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.054044
@@ -9894,6 +9898,18 @@ PrefabInstance:
       propertyPath: _dialoguePanel
       value: 
       objectReference: {fileID: 16702684}
+    - target: {fileID: 7044931560008898765, guid: 05e8fad8a851f5ba39040f281796b0c2, type: 3}
+      propertyPath: _quests.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044931560008898765, guid: 05e8fad8a851f5ba39040f281796b0c2, type: 3}
+      propertyPath: _quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f2d4421917864213b83500714f2590a, type: 2}
+    - target: {fileID: 7044931560008898765, guid: 05e8fad8a851f5ba39040f281796b0c2, type: 3}
+      propertyPath: _quests.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c479461b1d4bb9e8780dede24b59c5dd, type: 2}
     - target: {fileID: 7044931560008898765, guid: 05e8fad8a851f5ba39040f281796b0c2, type: 3}
       propertyPath: _choices.Array.data[0]
       value: 
@@ -20207,9 +20223,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f6749f1e1e56dbea901f6819a68d030, type: 2}
     - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 4071245800486399563, guid: 2f6749f1e1e56dbea901f6819a68d030, type: 2}
+    - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2288867622888343319, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -20807,9 +20839,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2f6749f1e1e56dbea901f6819a68d030, type: 2}
     - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 4071245800486399563, guid: 2f6749f1e1e56dbea901f6819a68d030, type: 2}
+    - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8360478861742252057, guid: 8de745d2d6f0522269840be8c7d983ca, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

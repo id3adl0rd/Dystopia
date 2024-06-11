@@ -15,11 +15,12 @@ MonoBehaviour:
   ItemPrefab: {fileID: 8038026475789020531, guid: a333b6ec8635d13b48d0cd5b93051e0d, type: 3}
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: "\u0417\u0415\u041B\u042F"
-  <Description>k__BackingField: "\u0417\u0415\u041B\u042C\u0415"
+  <Name>k__BackingField: "\u0417\u0435\u043B\u044C\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+  <Description>k__BackingField: "\u041E\u043D\u043E \u0437\u0430\u043B\u0435\u0447\u0438\u0442
+    \u0442\u0432\u043E\u0438 \u0440\u0430\u043D\u044B. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E."
   <ItemImage>k__BackingField: {fileID: -3679828817949995438, guid: 2c8226082c87fb35b9585164d1ff6670, type: 3}
   <DefaultParametersList>k__BackingField: []
   _modifierDatas:
   - statModifier: {fileID: 11400000, guid: ee2f244a3f7c7df53ae54884acdf4068, type: 2}
-    value: 5
+    value: 30
   <actionSfx>k__BackingField: {fileID: 8300000, guid: 8b63739b89ffad4b4a99085de2e2dce0, type: 3}

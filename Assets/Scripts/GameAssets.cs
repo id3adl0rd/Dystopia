@@ -18,9 +18,4 @@ public class GameAssets : MonoBehaviour
     }
 
     public Transform _pfDamagePopup;
-
-    public Quest[] Quests;
-    //public AudioClip _AudioClip;
-
-    //public Sprite CodeMonkeyHeadSprite;
 }

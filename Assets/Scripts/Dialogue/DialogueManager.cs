@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
 
     [SerializeField] private GameObject[] _choices;
+    [SerializeField] private List<Quest> _quests;
     private TextMeshProUGUI[] _choicesText;
 
     private Story _currentStory;
@@ -74,8 +76,8 @@ public class DialogueManager : MonoBehaviour
             {
                 return "У тебя уже есть задание. Чего тебе еще надо?";
             }
-            
-            //QuestController.instance.SetQuest(GameAssets.i.Quests.);
+                    
+            QuestController.instance.SetQuest(_quests[Random.Range(0, _quests.Count)]);
             NotifyController.instance.AddToQueue("Новое задание!", 0f);
             
             return "Держи свое задание";

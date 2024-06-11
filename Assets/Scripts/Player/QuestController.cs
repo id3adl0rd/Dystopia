@@ -53,6 +53,9 @@ public class QuestController : MonoBehaviour
 
     public void SetQuestData()
     {
-        GameObject.Find("QuestText").GetComponent<TMP_Text>().text = _quest.GetDescription();
+        if (_quest == null)
+            GameObject.Find("QuestText").GetComponent<TMP_Text>().text = "Нет задания";
+        else
+            GameObject.Find("QuestText").GetComponent<TMP_Text>().text = _quest.GetDescription();
     }
 }

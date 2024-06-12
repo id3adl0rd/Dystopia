@@ -16,12 +16,9 @@ public class QuestController : MonoBehaviour
         questCount = 0;
         isFinished = false;
         
-        Debug.Log(StaticData.isQuestFinished);
-        Debug.Log(StaticData.elimination);
-        if (StaticData.isQuestFinished == true)
-        {
-            isFinished = true;
-        }
+        isFinished = StaticData.isQuestFinished;
+        questCount = StaticData.elimination;
+        _quest = StaticData.quest;
     }
 
     public Quest GetQuest()

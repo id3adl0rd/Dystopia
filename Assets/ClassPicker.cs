@@ -14,5 +14,6 @@ public class ClassPicker : MonoBehaviour
         _choosed = _classSo[classNum];
         StaticData.classSO = _choosed;
         SceneManager.LoadSceneAsync("Scenes/Hub");
+        GameObject.Find("SoundManager").GetComponent<AmbientController>().PlayPassiveAmbient();
     }
 }

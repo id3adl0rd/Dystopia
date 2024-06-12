@@ -4,6 +4,8 @@ using UnityEngine.Events;
 public class PlayerHealthController : AbstractHealthController, IDamageable
 {
     public UnityEvent OnDied, OnDamaged, OnHealthChanged;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioClip sound;
     
     public void TakeDamage(float damageAmount, Vector2 knockback)
     {
@@ -22,6 +24,7 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
         if (_currentHealth < 0)
             _currentHealth = 0;
 
+        hit.PlayOneShot(sound);
         if (_currentHealth == 0)
         {
             OnDied.Invoke();

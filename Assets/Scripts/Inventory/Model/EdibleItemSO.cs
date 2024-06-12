@@ -9,7 +9,7 @@ namespace Inventory.Model
     {
         [SerializeField] private List<ModifierData> _modifierDatas = new List<ModifierData>();
         
-        public string ActionName => "Consume";
+        public string ActionName => "Исп.";
         
         [field: SerializeField]
         public AudioClip actionSfx { get; private set; }
@@ -19,7 +19,9 @@ namespace Inventory.Model
             {
                 data.statModifier.AffectCharacter(character, data.value);
             }
-
+            
+            AudioSource.PlayClipAtPoint(actionSfx, character.transform.position);
+            
             return true;
         }
     }

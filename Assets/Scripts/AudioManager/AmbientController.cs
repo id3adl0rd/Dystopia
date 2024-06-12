@@ -105,6 +105,17 @@ public class AmbientController : MonoBehaviour
             FadeOutCaller(_dynamic, 0.02f);
         }
     }
+    
+    public void StopAmbient()
+    {
+        if (_dynamic.isPlaying)
+        {
+            instance.StopAllCoroutines();
+            _ambient.volume = 0f;
+            _dynamic.volume = 0f;
+        }
+    }
+
 
     public static void FadeInCaller(AudioSource _source, float speed, float maxVolume)
     {

@@ -14,6 +14,11 @@ public class TeleportHub : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
+        {
             SceneManager.LoadSceneAsync("Scenes/Hub");
+            StaticData.isQuestFinished = QuestController.instance.isFinished;
+            StaticData.elimination = QuestController.instance.questCount;
+            StaticData.quest = QuestController.instance.GetQuest();
+        }
     }
 }

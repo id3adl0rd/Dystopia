@@ -15,6 +15,7 @@ public class RangeParent : MonoBehaviour
     [SerializeField] private GameObject _arrowPrefab;
     [SerializeField] private Slider _bowPowerSlider;
     [SerializeField] private Transform _bow;
+    [SerializeField] private AudioSource source;
 
     [Range(0, 10)] [SerializeField] private float _bowPower;
     [Range(1, 3)] [SerializeField] private float _maxBowCharge;
@@ -92,6 +93,7 @@ public class RangeParent : MonoBehaviour
         float angle = AngleTowardsMouse(PointerPosition, _bow.position);
         Quaternion rot = Quaternion.Euler(new Vector3(0f, 0f, transform.eulerAngles.z - 90));
 
+        source.Play();
         ArrowScript arrow = Instantiate(_arrowPrefab, _bow.position, rot).GetComponent<ArrowScript>();
         arrow.ArrowVelocity = arrowspeed;
         canFire = false;

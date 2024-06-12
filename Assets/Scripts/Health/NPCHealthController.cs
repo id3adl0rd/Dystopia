@@ -9,6 +9,8 @@ public class NPCHealthController : AbstractHealthController, IDamageable
     
     [SerializeField]
     public GameObject _spawnerParent;
+
+    [SerializeField] private AudioClip sound; 
     
     public void OnNPCDeath()
     {
@@ -39,6 +41,8 @@ public class NPCHealthController : AbstractHealthController, IDamageable
 
         if (_currentHealth < 0)
             _currentHealth = 0;
+        
+        AudioSource.PlayClipAtPoint(sound, transform.position);
         
         if (_currentHealth == 0)
         {

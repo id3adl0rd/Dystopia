@@ -4,7 +4,7 @@ using UnityEngine;
 public class NotifyController : MonoBehaviour
 {
     public GameObject _gameObject;
-
+    [SerializeField] private AudioClip sound;
     public static NotifyController instance; 
     
     private void Awake()
@@ -22,5 +22,6 @@ public class NotifyController : MonoBehaviour
     public void AddToQueue(string text, float time)
     {
         _gameObject.GetComponent<PopupNotify>().AddToQueue(text);
+        AudioSource.PlayClipAtPoint(sound, GameObject.FindWithTag("Player").transform.position);
     }
 }

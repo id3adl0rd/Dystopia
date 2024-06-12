@@ -189,6 +189,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _spawnerParent: {fileID: 0}
+  sound: {fileID: 8300000, guid: f4f075a3772fec95babcfa11d503320b, type: 3}
 --- !u!1 &6766169669431594972
 GameObject:
   m_ObjectHideFlags: 0

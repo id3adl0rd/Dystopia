@@ -11,7 +11,6 @@ public class PlayerAmbientController : MonoBehaviour
 
     private void Awake()
     {
-        
         _ambientController = GameObject.Find("SoundManager").GetComponent<AmbientController>();
     }
 

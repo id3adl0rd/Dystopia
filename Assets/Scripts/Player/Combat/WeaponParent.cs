@@ -13,6 +13,7 @@ public class WeaponParent : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _delay = 0.3f;
     private bool _attackBlocked;
+    [SerializeField] AudioSource swing;
     
     public bool IsAttacking { get; private set; }
 
@@ -59,6 +60,7 @@ public class WeaponParent : MonoBehaviour
         if (_attackBlocked)
             return;
         
+        swing.Play();
         _animator.SetTrigger("Attack");
         IsAttacking = true;
         _attackBlocked = true;

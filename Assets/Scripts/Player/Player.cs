@@ -82,9 +82,12 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(EndGameCoroutine());
     }
-    
+
+    [SerializeField] private AudioClip gameoversound;
     private IEnumerator EndGameCoroutine()
     {
+        GameObject.Find("SoundManager").GetComponent<AmbientController>().StopAmbient();
+        AudioSource.PlayClipAtPoint(gameoversound, gameObject.transform.position);
         _endUI.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneManager.LoadSceneAsync("Scenes/MainMenu");

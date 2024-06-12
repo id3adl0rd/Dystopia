@@ -6634,7 +6634,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 1552062627}
   _exitPrefab: {fileID: 1702136400612428459, guid: 674f4f52da5ff4d6ba740555a1b3c2ad, type: 3}
   _invUI: {fileID: 3082983745467405381}
-  _playerObject: {fileID: 4656119182535806620, guid: a48beb782f9a45e468070cd484be926c, type: 3}
+  _playerObject: {fileID: 4656119182535806620, guid: 95af12a737aa90cc2a8d21838911235b, type: 3}
   _objects:
   - {fileID: 11400000, guid: 5c03468d5ac23126ebb3889820106dee, type: 2}
   - {fileID: 11400000, guid: 1aafc7c89d36a13fab4d675e106023e8, type: 2}

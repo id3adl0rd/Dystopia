@@ -76,7 +76,16 @@ public class DialogueManager : MonoBehaviour
             {
                 return "У тебя уже есть задание. Чего тебе еще надо?";
             }
-                    
+
+            if (QuestController.instance.isFinished == true)
+            {
+                LevelController.instance.AddExperience(100);
+                MoneyController.instance.AddMoney(60);
+                QuestController.instance.ClearQuest();
+                
+                return "Отлично, держи награду!";
+            }
+            
             QuestController.instance.SetQuest(_quests[Random.Range(0, _quests.Count)]);
             NotifyController.instance.AddToQueue("Новое задание!", 0f);
             

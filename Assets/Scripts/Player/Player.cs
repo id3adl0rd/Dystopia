@@ -88,6 +88,9 @@ public class Player : MonoBehaviour
     {
         GameObject.Find("SoundManager").GetComponent<AmbientController>().StopAmbient();
         AudioSource.PlayClipAtPoint(gameoversound, gameObject.transform.position);
+        StaticData.isQuestFinished = false;
+        StaticData.elimination = 0;
+        StaticData.quest = null;
         _endUI.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneManager.LoadSceneAsync("Scenes/MainMenu");

@@ -21,6 +21,16 @@ public class QuestController : MonoBehaviour
         _quest = StaticData.quest;
     }
 
+    public void ClearQuest()
+    {
+        StaticData.isQuestFinished = false;
+        StaticData.elimination = 0;
+        StaticData.quest = null;
+        isFinished = false;
+        questCount = 0;
+        _quest = null;
+    }
+
     public Quest GetQuest()
     {
         return _quest;

@@ -19,7 +19,7 @@ public class ShopUI : MonoBehaviour
     {
         container = transform.Find("container");
         
-        CreateItemButton(_item.ItemImage, _item.Name, 10, 0);
+        CreateItemButton(_item.ItemImage, _item.Name, 10, 0, _item);
         container.gameObject.SetActive(false);
         //shopItemTemplate = container.Find("shopItemTemplate");
         //shopItemTemplate.gameObject.SetActive(false);
@@ -37,7 +37,7 @@ public class ShopUI : MonoBehaviour
         buttonItemRectTransform.anchoredPosition = new Vector2(0, -80 * 2);
     }
 
-    private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex, ItemSO item)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
         RectTransform shopItemRectTansform = shopItemTransform.GetComponent<RectTransform>();
@@ -46,6 +46,8 @@ public class ShopUI : MonoBehaviour
         shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("price").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
         shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
+        shopItemTransform.Find("Button").GetComponent<ShopButton>().item = item;
+        shopItemTransform.Find("Button").GetComponent<ShopButton>().ui = this;
     }
     
     public void BuyItem(ItemSO _item)
@@ -54,6 +56,10 @@ public class ShopUI : MonoBehaviour
         {
             _inv._inventoryData.AddItemAlt(_item, 1);
             MoneyController.instance.RemoveMoney(10);
+        }
+        else
+        {
+            NotifyController.instance.AddToQueue("Не хватает денег!", 0f);
         }
     }
 

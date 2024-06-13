@@ -5573,7 +5573,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 196965143}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &470990496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8196,6 +8208,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011878776}
   m_CullTransparentMesh: 1
+--- !u!114 &1017241384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6174409765450274407, guid: 9d1c3bf124df9e673bf4e641606e7304, type: 3}
+  m_PrefabInstance: {fileID: 3754047236274550887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45dbbf15b564e2caf8325ce1f452ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080391917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9247,7 +9270,7 @@ GameObject:
   - component: {fileID: 1382530262}
   - component: {fileID: 1382530261}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21096,7 +21119,11 @@ PrefabInstance:
     - target: {fileID: 4438865971559913739, guid: 9d1c3bf124df9e673bf4e641606e7304, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1743566995}
+      objectReference: {fileID: 1017241384}
+    - target: {fileID: 4438865971559913739, guid: 9d1c3bf124df9e673bf4e641606e7304, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Buy
+      objectReference: {fileID: 0}
     - target: {fileID: 5676513631523599519, guid: 9d1c3bf124df9e673bf4e641606e7304, type: 3}
       propertyPath: m_Name
       value: shopItemTemplate

@@ -85,11 +85,14 @@ public class DialogueManager : MonoBehaviour
                 
                 return "Отлично, держи награду!";
             }
+            else
+            {
+                QuestController.instance.SetQuest(_quests[Random.Range(0, _quests.Count)]);
+                NotifyController.instance.AddToQueue("Новое задание!", 0f);    
+                return "Держи свое задание";
+            }
             
-            QuestController.instance.SetQuest(_quests[Random.Range(0, _quests.Count)]);
-            NotifyController.instance.AddToQueue("Новое задание!", 0f);
-            
-            return "Держи свое задание";
+            return "Неизвестный сценарий действий";
         });
         
         _currentStory.BindExternalFunction("closeDialogue", () =>

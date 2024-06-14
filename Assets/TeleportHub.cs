@@ -19,6 +19,9 @@ public class TeleportHub : MonoBehaviour
             StaticData.isQuestFinished = QuestController.instance.isFinished;
             StaticData.elimination = QuestController.instance.questCount;
             StaticData.quest = QuestController.instance.GetQuest();
+            StaticData.lvl = LevelController.instance._level;
+            StaticData.exp = LevelController.instance._exp;
+            StaticData.money = MoneyController.instance.GetMoney();
         }
     }
 }

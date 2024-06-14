@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d129dae4aab29a17cb5cd561c8c1e200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _invincibilityDuration: 2.5
+  _invincibilityDuration: 1.1
 --- !u!212 &1057120573697588746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1014,6 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 83b736fbd26a37ab3abcf2a6ab5625fc, type: 2}
   duration: 0.05
+  spriteRenderer: {fileID: 963114252429321091}
 --- !u!61 &4032066386813559947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1298,6 +1299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: 0
   _exp: 0
+  lvlUPSound: {fileID: 8300000, guid: 51ed4d1ef537e27c98b5d577ea50bc52, type: 3}
 --- !u!114 &3021830876216645821
 MonoBehaviour:
   m_ObjectHideFlags: 0

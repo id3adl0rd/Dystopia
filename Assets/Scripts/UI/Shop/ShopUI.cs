@@ -14,6 +14,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private Transform shopItemTemplate;
     [SerializeField] private Transform closeButton;
     //[SerializeField] private GameObject containerObj;
+    [SerializeField] private TMP_Text moneyIndicator;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class ShopUI : MonoBehaviour
 
     public void ShowAll()
     {
+        moneyIndicator.text = MoneyController.instance.GetMoney().ToString();
         container.gameObject.SetActive(true);
         RectTransform buttonItemRectTransform = closeButton.GetComponent<RectTransform>();
         buttonItemRectTransform.anchoredPosition = new Vector2(0, -80 * 2);
@@ -56,6 +58,7 @@ public class ShopUI : MonoBehaviour
         {
             _inv._inventoryData.AddItemAlt(_item, 1);
             MoneyController.instance.RemoveMoney(10);
+            moneyIndicator.text = MoneyController.instance.GetMoney().ToString();
         }
         else
         {

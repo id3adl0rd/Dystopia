@@ -13,17 +13,18 @@ public class ShakeCameraController : MonoBehaviour
     private void Awake()
     {
         _noisePerlin = _vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        StopShake();
     }
 
     public void StartShake()
     {
         StartShakeCoroutine();
-        
         if (_noisePerlin.m_FrequencyGain == 0)
         {
             _noisePerlin.m_AmplitudeGain = 1;
-            _noisePerlin.m_FrequencyGain = 1; 
+            _noisePerlin.m_FrequencyGain = 1;
 
+            Debug.Log("res " + _noisePerlin.m_FrequencyGain);
         }
     }
 
@@ -47,7 +48,7 @@ public class ShakeCameraController : MonoBehaviour
 
     private IEnumerator ShakeCoroutine(float dynamicAmbientDuration)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         StopShake();
     }
 }

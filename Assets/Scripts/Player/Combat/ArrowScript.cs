@@ -22,7 +22,7 @@ public class ArrowScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.gameObject.name != "Player")
+        if (other.collider.gameObject.tag != "Player")
             MakeHit(other.collider);
     }
 

@@ -4,4 +4,7 @@ public class StaticData
       public static uint elimination;
       public static bool isQuestFinished;
       public static Quest quest;
+      public static int lvl;
+      public static int exp;
+      public static int money;
 }

@@ -22,10 +22,22 @@ namespace UI.Inventory
             Deselect();
         }
 
+        private void FixedUpdate()
+        {
+            if (_itemImage.gameObject == null)
+            {
+                Destroy(this);
+            }
+        }
+
         public void ResetData()
         {
-            this._itemImage.gameObject.SetActive(false);
-            this._empty = true;
+            Debug.Log(_itemImage);
+            if (_itemImage == null) 
+                Destroy(_itemImage);
+            
+            _itemImage.gameObject.SetActive(false);
+            _empty = true;
         }
         public void Deselect()
         {
@@ -33,10 +45,10 @@ namespace UI.Inventory
         }
         public void SetData(Sprite sprite, int quantity)
         {
-            this._itemImage.gameObject.SetActive(true);
-            this._itemImage.sprite = sprite;
-            this._quantityText.text = quantity + "";
-            this._empty = false;
+            _itemImage.gameObject.SetActive(true);
+            _itemImage.sprite = sprite;
+            _quantityText.text = quantity + "";
+            _empty = false;
         }
 
         public void Select()

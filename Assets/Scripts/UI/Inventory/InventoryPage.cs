@@ -11,7 +11,7 @@ namespace UI.Inventory
         [SerializeField] private InventoryDescription _itemDescription;
         [SerializeField] private MouseFollower _mouseFollower;
     
-        List<InventoryItem> listOfItems = new List<InventoryItem>();
+        public List<InventoryItem> listOfItems = new List<InventoryItem>();
 
         private void Awake()
         {
@@ -30,6 +30,7 @@ namespace UI.Inventory
 
         public void InitializeInventoryUI(int invSize)
         {
+            listOfItems = new List<InventoryItem>();
             for (int i = 0; i < invSize; i++)
             {
                 InventoryItem item = Instantiate(_itemPrefab, Vector3.zero, Quaternion.identity);

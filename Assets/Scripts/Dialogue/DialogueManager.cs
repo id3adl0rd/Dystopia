@@ -72,10 +72,7 @@ public class DialogueManager : MonoBehaviour
         _choicePanel.SetActive(true);
         _currentStory.BindExternalFunction("startQuest", (string value) =>
         {
-            if (QuestController.instance.GetQuest() != null)
-            {
-                return "У тебя уже есть задание. Чего тебе еще надо?";
-            }
+  
 
             if (QuestController.instance.isFinished == true)
             {
@@ -84,6 +81,10 @@ public class DialogueManager : MonoBehaviour
                 QuestController.instance.ClearQuest();
                 
                 return "Отлично, держи награду!";
+            }
+            else if (QuestController.instance.GetQuest() != null)
+            {
+                return "У тебя уже есть задание. Чего тебе еще надо?";
             }
             else
             {

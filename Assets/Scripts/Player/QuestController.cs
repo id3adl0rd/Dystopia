@@ -44,6 +44,7 @@ public class QuestController : MonoBehaviour
     
     public void OnKillObj(string objname)
     {
+        if (_quest == null) return;
         if (isFinished == true) return;
         
         if (_quest.isKillQuest == true)

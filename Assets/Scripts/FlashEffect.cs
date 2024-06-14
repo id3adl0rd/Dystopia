@@ -9,13 +9,13 @@ public class FlashEffect : MonoBehaviour
 
     [SerializeField] private float duration;
         
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private Material originalMaterial;
     private Coroutine flashRoutine;
         
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
         flashMaterial = new Material(flashMaterial);
     }

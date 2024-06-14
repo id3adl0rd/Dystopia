@@ -11,6 +11,11 @@ public class MoneyController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        if (StaticData.money != 0)
+        {
+            _money = StaticData.money;
+        }
     }
 
     public void AddMoney(int addMoney)

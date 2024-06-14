@@ -27,6 +27,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private GameObject _exitPrefab;
     [SerializeField] private GameObject _invUI;
+    [SerializeField] private GameObject _notifyUI;
 
     protected override void RunProceduralGeneration()
     {
@@ -116,7 +117,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         _camera.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
         _miniMap.GetComponent<SmoothCamera>().SetTarget(_playerInstatiated);
         _virtualCamera.Follow = _playerInstatiated.transform;
+        _playerInstatiated.GetComponent<ShakeCameraController>()._vcam = _virtualCamera;
         _playerInstatiated.GetComponent<InventoryController>()._inventoryUI = _invUI.GetComponentInChildren<InventoryPage>();
+        _playerInstatiated.GetComponent<NotifyController>()._gameObject = _notifyUI;
         
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
         for (int i = 0; i < roomsList.Count; i++)

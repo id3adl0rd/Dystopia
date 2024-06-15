@@ -94,5 +94,6 @@ public class Player : MonoBehaviour
         _endUI.SetActive(true);
         yield return new WaitForSeconds(5f);
         SceneManager.LoadSceneAsync("Scenes/MainMenu");
+        System.IO.File.Delete(Application.persistentDataPath + "/character.json");
     }
 }

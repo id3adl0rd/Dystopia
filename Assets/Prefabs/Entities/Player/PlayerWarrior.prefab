@@ -437,11 +437,11 @@ GameObject:
   - component: {fileID: 746226031936898703}
   - component: {fileID: 3322177168149597388}
   - component: {fileID: 4032066386813559947}
+  - component: {fileID: 4534290224497010981}
   - component: {fileID: 989235009150275431}
   - component: {fileID: 3540595168197941533}
   - component: {fileID: 6347425360395515314}
   - component: {fileID: 5194970822308711521}
-  - component: {fileID: 4534290224497010981}
   - component: {fileID: 8271410052554059874}
   - component: {fileID: 218566259460198031}
   - component: {fileID: 7099238580733645555}
@@ -1060,6 +1060,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3831687, y: 0.5596042}
   m_EdgeRadius: 0
+--- !u!114 &4534290224497010981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656119182535806620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4958ada04318444f8ad872be8e8bfea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameoversound: {fileID: 8300000, guid: 3b47c94bea2b81345a3a5845abc91be6, type: 3}
 --- !u!114 &989235009150275431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,19 +1226,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4534290224497010981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656119182535806620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4958ada04318444f8ad872be8e8bfea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameoversound: {fileID: 8300000, guid: 3b47c94bea2b81345a3a5845abc91be6, type: 3}
 --- !u!114 &8271410052554059874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,6 +1285,10 @@ MonoBehaviour:
   _class: {fileID: 11400000, guid: 5fe2f8d16b9f84df09d83e136ce05c77, type: 2}
   _weaponMelee: {fileID: 14672966183798369}
   _weaponRange: {fileID: 3397419081873308259}
+  hidden:
+  - {fileID: 11400000, guid: dd7fecdb494c41255b99764bd0f8a8e4, type: 2}
+  - {fileID: 11400000, guid: 5fe2f8d16b9f84df09d83e136ce05c77, type: 2}
+  - {fileID: 11400000, guid: b9e9f731575be4ddbb4fe0ea6725a4ac, type: 2}
 --- !u!114 &7369692274402740907
 MonoBehaviour:
   m_ObjectHideFlags: 0

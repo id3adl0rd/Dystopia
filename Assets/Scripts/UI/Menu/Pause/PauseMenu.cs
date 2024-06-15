@@ -40,11 +40,13 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitButton()
     {
+        SaveManager.Save();
         SceneManager.LoadSceneAsync("Scenes/MainMenu");
     }
     
     public void QuitButton()
     {
+        SaveManager.Save();
         Application.Quit();
     }
 }

@@ -7,4 +7,7 @@ public class StaticData
       public static int lvl;
       public static int exp;
       public static int money;
+
+      public static bool loading;
+      public static SaveManager.UserData userData;
 }

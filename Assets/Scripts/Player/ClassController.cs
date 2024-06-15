@@ -11,6 +11,8 @@ public class ClassController : MonoBehaviour
     [SerializeField] private GameObject _weaponMelee;
     [SerializeField] private GameObject _weaponRange;
 
+    [SerializeField] private List<ClassSO> hidden;
+    
     public void SetClass(ClassSO pl_class)
     {
         _class = pl_class;
@@ -19,6 +21,25 @@ public class ClassController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        if (StaticData.loading == true)
+        {
+            switch (StaticData.userData.className)
+            {
+                case "thief":
+                    StaticData.classSO = hidden[2];
+                    break;
+                case "guard":
+                    StaticData.classSO = hidden[1];
+                    break;
+                case "bow":
+                    StaticData.classSO = hidden[0];
+                    break;
+                default:
+                    break;
+            }
+        }
+        
         SetClass(StaticData.classSO);
         
         if (_class.GetUID() == "bow")

@@ -41,7 +41,13 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        
+        string filePath = Application.persistentDataPath + "/character.json";
+
+        if (System.IO.File.Exists(filePath) == true)
+        {
+            SaveManager.Load();
+            SceneManager.LoadSceneAsync("Scenes/Hub");
+        }
     }
 
     public void Settings()

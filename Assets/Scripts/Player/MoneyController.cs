@@ -12,6 +12,11 @@ public class MoneyController : MonoBehaviour
     {
         instance = this;
 
+        if (StaticData.loading)
+        {
+            StaticData.money = StaticData.userData.money;
+        }
+        
         if (StaticData.money != 0)
         {
             _money = StaticData.money;

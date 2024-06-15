@@ -15,6 +15,12 @@ public class LevelController : MonoBehaviour
       {
             instance = this;
 
+            if (StaticData.userData != null)
+            {
+                  StaticData.lvl = StaticData.userData.level;
+                  StaticData.exp = StaticData.userData.exp;
+            }
+            
             if (StaticData.lvl != 0)
             {
                   _level = StaticData.lvl;

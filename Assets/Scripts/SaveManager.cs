@@ -51,6 +51,8 @@ public class SaveManager : MonoBehaviour
             {
                 file.Close();
             }
+            
+            File.WriteAllText(filePath, res);
         }
         else
         {

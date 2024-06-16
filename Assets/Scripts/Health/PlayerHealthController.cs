@@ -19,7 +19,7 @@ public class PlayerHealthController : AbstractHealthController, IDamageable
         OnHealthChanged.Invoke();
         GameObject.Find("Health Bar").GetComponent<HealthBarUI>().UpdateHealthBar();
         
-        transform.position = new Vector2(transform.position.x + knockback.x, transform.position.y + knockback.y);
+        //transform.position = new Vector2(transform.position.x + knockback.x, transform.position.y + knockback.y);
         
         if (_currentHealth < 0)
             _currentHealth = 0;

@@ -22,6 +22,9 @@ public class TeleportHub : MonoBehaviour
             StaticData.lvl = LevelController.instance._level;
             StaticData.exp = LevelController.instance._exp;
             StaticData.money = MoneyController.instance.GetMoney();
+            SaveManager.Save();
+            GameObject.Find("SoundManager").GetComponent<AmbientController>().StopAmbient();
+            GameObject.Find("SoundManager").GetComponent<AmbientController>().PlayPassiveAmbient();
         }
     }
 }

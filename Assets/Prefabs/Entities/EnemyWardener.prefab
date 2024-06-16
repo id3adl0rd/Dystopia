@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7990785954523478491}
   - component: {fileID: 361342387513035416}
   - component: {fileID: 8422519704636629983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyWardener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7902498512500796391}
   - component: {fileID: 5529198913984094138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

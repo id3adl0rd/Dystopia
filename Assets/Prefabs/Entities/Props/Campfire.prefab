@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 749277063660237251}
   - component: {fileID: 7293625090330139667}
   - component: {fileID: 8943753504723902468}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,6 +4839,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 815602945305290387, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2667012948326159272, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4910,6 +4914,10 @@ PrefabInstance:
     - target: {fileID: 8236933534606853528, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
       propertyPath: m_Name
       value: Campfire
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236933534606853528, guid: 7e8fe7f2215cd7e5c829a3c9f137da62, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

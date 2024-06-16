@@ -76,6 +76,7 @@ public class PlayerFOV : MonoBehaviour
 
     public void SetAimDirection(Vector3 aimDirection) {
         _startingAngle = Other.Utils.GetAngleFromVectorFloat(aimDirection) + _fov / 2f;
+        Debug.Log(_startingAngle);
     }
 
     public void SetFoV(float fov) {
